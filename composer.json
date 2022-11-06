@@ -1,0 +1,25 @@
+{
+    "name": "hndit/pos-and-inventory-system",
+    "description": "HNDIT 2nd year 1st sem group project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PasinduDilshan\\PosAndInventorySystem\\": "App/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dilshan-chathuranga",
+            "email": "dilshanpasindu357@gmail.com"
+        },
+        {
+            "name": "yunila-surath"
+        },
+        {
+            "name": "rashmi-poornima"
+        },
+        {
+            "name": "madhusika"
+        }
+    ]
+}
