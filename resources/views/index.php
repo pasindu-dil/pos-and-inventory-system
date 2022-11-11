@@ -102,14 +102,13 @@ use App\Controllers\HomeController;
     <script type="text/javascript" src="resources/plugins/jquery.toast/jquery.toast.min.js"></script>
 
     <script>
-        // $(document).ready(function () {
-        //     $.toast({
-        //         heading: 'Success',
-        //         text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
-        //         showHideTransition: 'slide',
-        //         icon: 'success'
-        //     })
-        // });
+        $.toast({
+            heading: 'Success',
+            text: 'Successfully log out!',
+            showHideTransition: 'slide',
+            icon: 'success',
+            hideAfter: 4000
+        })
     </script>
 </body>
 </html>
