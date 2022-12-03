@@ -1,9 +1,11 @@
 <?php
 
-use App\Controllers\HomeController;
+// use App\Controllers\MenuController;
 
-    $home = new HomeController();
-    // $home->success();
+// $menuController = new MenuController();
+
+// var_dump($menuController->index());
+// exit;
 
 ?>
 
@@ -202,7 +204,7 @@ use App\Controllers\HomeController;
     </div>
   </main>
   <!--   Core JS Files   -->
-  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>

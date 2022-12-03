@@ -2,8 +2,18 @@
 
 namespace App\Controllers;
 
+use Symfony\Component\Dotenv\Dotenv;
+use App\Models\dbConnection as Connection;
+
 class Controller
 {
+    protected $connection;
+
+    public function __construct()
+    {
+        $this->connection = new Connection();
+    }
+
     /**
      * 
      */
