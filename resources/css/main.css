@@ -1,0 +1,4 @@
+.navbar-vertical.navbar-expand-xs .navbar-collapse {
+    display: block;
+    height: calc(100vh - 150px) !important;
+}
