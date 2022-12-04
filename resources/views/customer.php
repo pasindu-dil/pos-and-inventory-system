@@ -32,28 +32,33 @@
             <?php require_once('./navbar.php'); ?>
 
             <div class="container-fluid py-4">
-            <div class="container-fluid py-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card my-4">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                    <h6 class="text-white text-capitalize ps-3">Customers table</h6>
+                <div class="container-fluid py-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card my-4">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                    <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
+                                        <h6 class="text-white text-capitalize pt-1">Customer table</h6>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#">
+                                            Add Customer
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body px-0 pb-2">
-                                <div class="table-responsive p-5">
-                                    <table class="table align-items-center mb-0" id="customer-table">
-                                        <thead>
-                                            <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                            <th class="text-secondary opacity-7"></th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="card-body px-0 pb-2">
+                                    <div class="table-responsive p-5 pt-0">
+                                        <table class="table align-items-center mb-0" id="customerTable">
+                                            <thead>
+                                                <tr>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                                                <th class="text-secondary opacity-7"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -92,7 +97,7 @@
     <script>
         $(document).ready(function () {
             activeTab('customer');
-            DataTableOption.initDataTable('customer-table', '/');
+            DataTableOption.initDataTable('customerTable', '/');
         });
 
         var win = navigator.platform.indexOf('Win') > -1;

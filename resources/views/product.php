@@ -32,32 +32,33 @@
             <?php require_once('./navbar.php'); ?>
 
             <div class="container-fluid py-4">
-            <div class="container-fluid py-4">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card my-4">
-                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
-                                    <h6 class="text-white text-capitalize pt-1">Products table</h6>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModel">
-                                        Add Product
-                                    </button>
+                <div class="container-fluid py-4">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card my-4">
+                                <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                    <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
+                                        <h6 class="text-white text-capitalize pt-1">Products table</h6>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModel">
+                                            Add Product
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="card-body px-0 pb-2">
-                                <div class="table-responsive p-5 pt-0">
-                                    <table class="table align-items-center mb-0" id="product-table">
-                                        <thead>
-                                            <tr>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                            <th class="text-secondary opacity-7"></th>
-                                            </tr>
-                                        </thead>
-                                    </table>
+                                <div class="card-body px-0 pb-2">
+                                    <div class="table-responsive p-5 pt-0">
+                                        <table class="table align-items-center mb-0" id="productTable">
+                                            <thead>
+                                                <tr>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
+                                                <th class="text-secondary opacity-7"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,76 +69,36 @@
 
         <div class="modal fade" id="addProductModel" tabindex="-1" aria-labelledby="addProductModelLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content" style="width: 600px;">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!-- <form> -->
-                        <div class="modal-body">
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productName">Name</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control is-invalid" name="name" id="productName" placeholder="Name" required>
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productItemCode">Item Code</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control is-invalid" name="itemCode" id="productItemCode" placeholder="Item code" required>
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productSellingPrice">Selling Price</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control is-invalid" name="sellingPrice" id="productSellingPrice" placeholder="Selling price">
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productQuantity">Quantity</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control is-invalid" name="quantity" id="productQuantity" placeholder="Quantity">
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productCategory">Category</label>
-                                <div class="col-sm-8">
-                                    <select class="form-select form-control is-invalid" name="category" id="productCategory" aria-label="Default select example" aria-placeholder="Select category">
-                                        <option selected disabled>Select category</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productSubCategory">Sub Category</label>
-                                <div class="col-sm-8">
-                                    <select class="form-select form-control is-invalid" name="subCategory" id="productSubCategory" aria-label="Default select example" aria-placeholder="Sub category">
-                                        <option selected disabled>Select category</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productRemarks">Remarks</label>
-                                <div class="col-sm-8">
-                                    <input type="number" class="form-control is-invalid" name="remarks" id="productRemarks" placeholder="Remarks">
-                                </div>
-                            </div>
-                            <div class="form-group row mb-2">
-                                <label class="col-sm-3 col-form-label" for="productDescription">Description</label>
-                                <div class="col-sm-8">
-                                    <textarea class="form-control is-invalid" name="description" placeholder="Leave a description here" id="productDescription"></textarea>
-                                </div>
-                            </div>
-                        </div>
+                    <form id="addProduct">
+                        <?php require('./forms/productForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submit()">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
                         </div>
-                    <!-- </form> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="editProductModel" tabindex="-1" aria-labelledby="editProductModel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 600px;">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Product</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="editProduct">
+                        <?php require('./forms/productForm.php'); ?>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Update</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -174,8 +135,35 @@
     <script>
         $(document).ready(function () {
             activeTab('product');
-            DataTableOption.initDataTable('product-table', '/');
-            FormOptions.initValidation('#addProductModel', []);
+            DataTableOption.initDataTable('productTable', '/');
+            let rules = {
+                name: {
+                    required: true,
+                    minlength: 4
+                },
+                remarks: {
+                    required: true,
+                    number: true
+                },
+                itemCode: {
+                    required: true,
+                    minlength: 3,
+                    maxlength: 20
+                },
+                sellingPrice: {
+                    required: true,
+                    number: true
+                },
+                quantity: {
+                    required: true,
+                    number: true
+                },
+                category: {
+                    required: true
+                }
+            };
+            FormOptions.initValidation('#addProduct', rules);
+            FormOptions.initValidation('#editProduct', rules);
         });
 
         var win = navigator.platform.indexOf('Win') > -1;
@@ -186,7 +174,13 @@
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
-        function submit() {
+        function submitForm() {
+            $('#addProduct').valid();
+            $('#editProduct').valid();
+        }
+
+        function edit() {
+            
         }
     </script>
     

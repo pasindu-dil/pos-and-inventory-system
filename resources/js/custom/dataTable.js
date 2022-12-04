@@ -13,21 +13,21 @@ DataTableOption = {
             info: true,
             pageLength: 25,
             autoWidth: false,
-            // ajax: {
-            //     type: "get",
-            //     url: url,
-            //     data: "data",
-            //     error: function () {
-            //         $(tableName).css("display", "none");
-            //     }
-            // },
-            // drawCallback: function () {
-            //     $('.dt-buttons > .btn').addClass('btn-outline-light btn-sm');
-            // },
-            // columnDefs: [{
-            //     // targets: indexLastColumn,
-            //     orderable: false
-            // }],
+            ajax: {
+                type: "get",
+                url: url,
+                data: "data",
+                error: function () {
+                    $(tableName).css("display", "none");
+                }
+            },
+            drawCallback: function () {
+                $('.dt-buttons > .btn').addClass('btn-outline-light btn-sm');
+            },
+            columnDefs: [{
+                // targets: indexLastColumn,
+                orderable: false
+            }],
         });
     },
 };
