@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+$_SESSION['page_title'] = "Customer";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +46,7 @@
                                     <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
                                         <h6 class="text-white text-capitalize pt-1">Customer table</h6>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#">
+                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCustomerModel">
                                             Add Customer
                                         </button>
                                     </div>
@@ -66,6 +72,40 @@
                 </div>
             </div>
         </main>
+        <div class="modal fade" id="addCustomerModel" tabindex="-1" aria-labelledby="addCustomerModelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 600px;">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Loyalty Customer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="addCustomer">
+                        <?php require('./forms/customerForm.php'); ?>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="editCustomerModel" tabindex="-1" aria-labelledby="editCustomerModelLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 600px;">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Loyalty Customer</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="editCustomer">
+                        <?php require('./forms/customerForm.php'); ?>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--   Core JS Files   -->
@@ -92,12 +132,33 @@
     <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
+    <script type="text/javascript" src="../js/jquery.validate.js"></script>
+    <script type="text/javascript" src="../js/custom//FormOptions.js"></script>
 
     
     <script>
         $(document).ready(function () {
             activeTab('customer');
             DataTableOption.initDataTable('customerTable', '/');
+            let rules = {
+                name: {
+                    required: true
+                },
+                gender: {
+                    required: true
+                },
+                mobile: {
+                    required: true,
+                    number: true,
+                    maxlength: 11,
+                    minlength: 11
+                },
+                nic: {
+                    required: true,
+                }
+            };
+            FormOptions.initValidation('#addCustomer', rules);
+            FormOptions.initValidation('#editCustomer', rules);
         });
 
         var win = navigator.platform.indexOf('Win') > -1;
@@ -106,6 +167,11 @@
             damping: '0.5'
         }
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+
+        function submitForm() {
+            $('#addCustomer').valid();
+            $('#editCustomer').valid();
         }
     </script>
 

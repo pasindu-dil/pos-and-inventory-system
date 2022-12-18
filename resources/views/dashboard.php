@@ -1,12 +1,14 @@
 <?php
 
+session_start();
+
 require '../helpers/helpers.php';
 
 use App\Controllers\MenuController;
 
 $menuController = new MenuController();
 
-
+$_SESSION['page_title'] = "Dashboard";
 
 ?>
 

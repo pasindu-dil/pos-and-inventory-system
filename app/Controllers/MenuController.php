@@ -9,6 +9,6 @@ class MenuController extends Controller
 {
     public function index(): array
     {
-        return $this->connection->selectColumns('menus', ['id', 'parent_id', 'title', 'url', 'depth', 'name',]);
+        return $this->connection->selectColumns('menus', ['id', 'depth', 'title', 'url', 'depth', 'name',]);
     }
 }

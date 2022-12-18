@@ -1,5 +1,5 @@
 FormOptions = {
-    initValidation: function (formId, rules = []) {
+    initValidation: function (formId, rules = [], messages = []) {
         $(formId).validate({
             errorPlacement: function (error, element) {
                 error.insertAfter(element);
@@ -11,7 +11,8 @@ FormOptions = {
                 $(element).removeClass('is-invalid');
                 console.log(element);
             },
-            rules: rules
+            rules: rules,
+            messages: messages,
         });
     }
 }
