@@ -276,7 +276,6 @@ require 'resources\helpers\helpers.php';
             url: 'resources/views/routehelpers/loginhelper.php',
             data: {mode: 'login', email: email, password: password},
             success: function (data) { 
-              console.log(JSON.parse(data));
               let response = JSON.parse(data);
               if (response.success) {
                 Notifications.success(response.msg);
@@ -286,7 +285,7 @@ require 'resources\helpers\helpers.php';
               }
             },
             error: function (xhr, error, errorThrown) {
-              console.log(xhr);
+              console.log(xhr.error);
             }
           }
         )

@@ -25,8 +25,9 @@ FormOptions = {
                     url: url,
                     type: method,
                     success: function (result) {
-                        if (result.success) {
-                            Notifications.success(result.message);
+                        let response = JSON.parse(result);
+                        if (response.success) {
+                            Notifications.success(response.msg);
                         }
                     }
                 }

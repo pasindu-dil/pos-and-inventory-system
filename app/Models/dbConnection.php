@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Exceptions\DataDoesNotExistException;
 use mysqli;
 use Symfony\Component\Dotenv\Dotenv;
 
-class dbConnection 
+class dbConnection
 {
     private $dotenv;
     private $conn;
@@ -58,7 +59,7 @@ class dbConnection
 
     public function fetchAccoc($result): array
     {
-        $row= [];
+        $row = [];
         while ($row = mysqli_fetch_assoc($result)) {
             $row = array_push($row);
         }
@@ -70,32 +71,32 @@ class dbConnection
     {
         $columns = $this->implodeArray($columns);
         $query = "SELECT $columns FROM $tblName WHERE $condition";
-        try {
-            $result = mysqli_query($this->conn, $query);
-            if (mysqli_num_rows($result) > 0) {
-                return mysqli_fetch_assoc($result);
-            } else {
-                return false;
-            }
-        } catch (\Exception $e) {
-            return ["status" => "500", "msg" => $e];
+        $result = mysqli_query($this->conn, $query);
+        if (!mysqli_num_rows($result)) {
+            throw new DataDoesNotExistException("User name or password is incorrect!", 500);
         }
+        return mysqli_fetch_assoc($result);
     }
 
     /**
      * This function insert data to database and return response array
      * @param string $tblName is table name
      * @param array $columns is column set in table
-     * @return array
+     * @return bool
      */
-    public function create(string $tblName, array $columns, array $values): array
+    public function create(string $tblName, array $columns, array $values): bool
     {
-        try {
-            $columns = $this->implodeArray($columns);
-            $query = "INSERT INTO $tblName ($columns) VALUE ()";
-        } catch (\Exception $exception) {
-            
+        $escapedValues = array_map(function($values) {
+            return "'".mysqli_real_escape_string($this->conn, $values)."'";
+        }, $values);
+        $columns = $this->implodeArray($columns);
+        $values = $this->implodeArray($escapedValues);
+        $query = "INSERT INTO $tblName ($columns) VALUE ($values)";
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            throw new \Exception("Error Processing Request", 1);
         }
+        return $result;
     }
 
     /**
@@ -105,6 +106,6 @@ class dbConnection
      */
     public function implodeArray(array $arr): string
     {
-        return implode(',', $arr);
+        return implode(', ', $arr);
     }
 }

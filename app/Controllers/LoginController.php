@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\Controller;
+use App\Exceptions\DataDoesNotExistException;
 use Exception;
 
 class LoginController extends Controller
@@ -14,10 +15,8 @@ class LoginController extends Controller
             if ($values && $values['email'] === $request['email'] && $values['password'] === $request['password']) {
                 $_SESSION['user_id'] = $values['id'];
                 return ['success' => true, 'msg' => 'User successfully logedin!'];
-            } else {
-                return ['success' => false, 'msg' => 'Username or password is incorrect!'];
             }
-        } catch (Exception $exception) {
+        } catch (DataDoesNotExistException $exception) {
             return ['success' => false, 'msg' => $exception->getMessage()];
         }
     }
