@@ -62,7 +62,49 @@ class dbConnection
         while ($row = mysqli_fetch_assoc($result)) {
             $row = array_push($row);
         }
-        var_dump($row);exit;
+        // var_dump($row);exit;
         return $row;
+    }
+
+    public function selectColumnsWithWhereClause(string $tblName, array $columns, string $condition): array
+    {
+        $columns = $this->implodeArray($columns);
+        $query = "SELECT $columns FROM $tblName WHERE $condition";
+        try {
+            $result = mysqli_query($this->conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                return mysqli_fetch_assoc($result);
+            } else {
+                return false;
+            }
+        } catch (\Exception $e) {
+            return ["status" => "500", "msg" => $e];
+        }
+    }
+
+    /**
+     * This function insert data to database and return response array
+     * @param string $tblName is table name
+     * @param array $columns is column set in table
+     * @return array
+     */
+    public function create(string $tblName, array $columns, array $values): array
+    {
+        try {
+            $columns = $this->implodeArray($columns);
+            $query = "INSERT INTO $tblName ($columns) VALUE ()";
+        } catch (\Exception $exception) {
+            
+        }
+    }
+
+    /**
+     * This function help to implode array using comma
+     * @param array $arr
+     * @return string
+     */
+    public function implodeArray(array $arr): string
+    {
+        return implode(',', $arr);
     }
 }

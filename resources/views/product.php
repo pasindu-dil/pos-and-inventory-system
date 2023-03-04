@@ -85,11 +85,11 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addProduct">
+                    <form id="addProduct" action="../views/routehelpers/add_product_helper.php">
                         <?php require('./forms/productForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#addProduct', '#addProductModel', '#productTable')">Save</button>
                         </div>
                     </form>
                 </div>
@@ -125,7 +125,7 @@ $_SESSION['page_title'] = "Product";
                         <?php require('./forms/productBulkUpload.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Upload</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm()">Upload</button>
                         </div>
                     </form>
                 </div>
@@ -141,8 +141,8 @@ $_SESSION['page_title'] = "Product";
     <script src="../plugins/smooth-scrollbar.min.js"></script>
     <script src="../plugins/chartjs.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
     <script src="../lib/chart/chart.min.js"></script>
     <script src="../lib/easing/easing.min.js"></script>
     <script src="../lib/waypoints/waypoints.min.js"></script>
@@ -155,11 +155,13 @@ $_SESSION['page_title'] = "Product";
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
     <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="https://malsup.github.io/jquery.form.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
+    <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/custom//FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/notification.js"></script>
     
     <script>
         $(document).ready(function () {
@@ -206,8 +208,9 @@ $_SESSION['page_title'] = "Product";
 
         function submitForm() {
             $('#addProduct').valid();
-            $('#editProduct').valid();
-            $('#productBulkUploadForm').valid();
+            Notifications.success('Hello');
+            // $('#editProduct').valid();
+            // $('#productBulkUploadForm').valid();
         }
 
         function edit() {

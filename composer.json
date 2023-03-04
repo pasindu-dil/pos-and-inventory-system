@@ -24,6 +24,7 @@
         }
     ],
     "require": {
-        "symfony/dotenv": "^6.1"
+        "symfony/dotenv": "^6.1",
+        "nikic/fast-route": "^1.3"
     }
 }

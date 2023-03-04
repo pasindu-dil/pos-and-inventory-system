@@ -9,10 +9,28 @@ FormOptions = {
                 error.remove();
                 $(element).addClass('is-valid');
                 $(element).removeClass('is-invalid');
-                console.log(element);
             },
             rules: rules,
             messages: messages,
         });
+    },
+    submitForm: function (formId, modalId, tableId, clearForm = true, callback, triggerChange = []) {
+        let isValid = $(formId).valid();
+        if (isValid) {
+            let url = $(formId).attr('action');
+            let method = $(formId).attr('method');
+            $(formId).ajaxSubmit(
+                {
+                    clearForm: clearForm,
+                    url: url,
+                    type: method,
+                    success: function (result) {
+                        if (result.success) {
+                            Notifications.success(result.message);
+                        }
+                    }
+                }
+            )
+        }
     }
 }
