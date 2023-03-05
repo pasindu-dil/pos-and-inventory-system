@@ -52,4 +52,31 @@ class ProductController extends Controller
             var_dump($e->getMessage());
         }
     }
+
+    /**
+     * 
+     */
+    public function dataTable(array $request): array
+    {
+        $data[][] = [];
+        $i = 0;
+        $deleteBtn = "<i class='icon-md icon-trash'>Delete</i>";
+        $response = $this->connection->fetchAccoc('products');
+        $canDelete = '';
+        foreach ($response as $key => $value) {
+            $data[$i] = [
+                $value['name'],
+                $value['item_code'],
+                "Rs. " . $value['price'],
+                $value['quantity'],
+                $value['remarks'],
+                $value['description'],
+                $deleteBtn
+            ];
+            $i++;
+        }
+        return [
+            'data' => $data
+        ];
+    }
 }

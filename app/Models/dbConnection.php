@@ -57,14 +57,21 @@ class dbConnection
         }
     }
 
-    public function fetchAccoc($result): array
+    public function fetchAccoc($tblName): array
     {
-        $row = [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row = array_push($row);
+        $query = "SELECT * FROM $tblName";
+        try {
+            $row = [];
+            $result = mysqli_query($this->conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row_1 = mysqli_fetch_assoc($result)) {
+                    array_push($row, $row_1);
+                }
+            }
+            return $row;
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-        // var_dump($row);exit;
-        return $row;
     }
 
     public function selectColumnsWithWhereClause(string $tblName, array $columns, string $condition): array
@@ -86,8 +93,8 @@ class dbConnection
      */
     public function create(string $tblName, array $columns, array $values): bool
     {
-        $escapedValues = array_map(function($values) {
-            return "'".mysqli_real_escape_string($this->conn, $values)."'";
+        $escapedValues = array_map(function ($values) {
+            return "'" . mysqli_real_escape_string($this->conn, $values) . "'";
         }, $values);
         $columns = $this->implodeArray($columns);
         $values = $this->implodeArray($escapedValues);

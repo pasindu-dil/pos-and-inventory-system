@@ -125,7 +125,7 @@ $_SESSION['page_title'] = "Product";
                         <?php require('./forms/productBulkUpload.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm()">Upload</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#productBulkUploadForm', '#productBulkUpload', '#productTable')">Upload</button>
                         </div>
                     </form>
                 </div>
@@ -140,6 +140,7 @@ $_SESSION['page_title'] = "Product";
     <script src="../plugins/perfect-scrollbar.min.js"></script>
     <script src="../plugins/smooth-scrollbar.min.js"></script>
     <script src="../plugins/chartjs.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
@@ -154,7 +155,6 @@ $_SESSION['page_title'] = "Product";
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
-    <script type="text/javascript" src="../js/jquery.js"></script>
     <script src="https://malsup.github.io/jquery.form.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
@@ -162,6 +162,7 @@ $_SESSION['page_title'] = "Product";
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
     <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
     <script type="text/javascript" src="../js/custom/notification.js"></script>
+    <script type="text/javascript" src="../js/custom/dataTable.js"></script>
     
     <script>
         $(document).ready(function () {
@@ -193,9 +194,15 @@ $_SESSION['page_title'] = "Product";
                     required: true
                 }
             };
+            let bulkRules = {
+                bulk_file: {
+                    required: true,
+                }
+            };
             FormOptions.initValidation('#addProduct', rules);
             FormOptions.initValidation('#editProduct', rules);
-            FormOptions.initValidation('#productBulkUploadForm');
+            FormOptions.initValidation('#productBulkUploadForm', bulkRules);
+            DataTableOption.initDataTable('#productTable', '../views/routehelpers/product_datatable_helper.php');
         });
 
         var win = navigator.platform.indexOf('Win') > -1;

@@ -27,6 +27,7 @@ FormOptions = {
                     success: function (result) {
                         let response = JSON.parse(result);
                         if (response.success) {
+                            $(modalId).modal('hide');
                             Notifications.success(response.msg);
                         }
                     }
