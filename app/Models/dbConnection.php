@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
+use App\Exceptions\DataDoesNotExistException;
 use mysqli;
 use Symfony\Component\Dotenv\Dotenv;
 
-class dbConnection 
+class dbConnection
 {
     private $dotenv;
     private $conn;
@@ -56,13 +57,62 @@ class dbConnection
         }
     }
 
-    public function fetchAccoc($result): array
+    public function fetchAccoc($tblName): array
     {
-        $row= [];
-        while ($row = mysqli_fetch_assoc($result)) {
-            $row = array_push($row);
+        $query = "SELECT * FROM $tblName";
+        try {
+            $row = [];
+            $result = mysqli_query($this->conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row_1 = mysqli_fetch_assoc($result)) {
+                    array_push($row, $row_1);
+                }
+            }
+            return $row;
+        } catch (\Throwable $th) {
+            //throw $th;
         }
-        var_dump($row);exit;
-        return $row;
+    }
+
+    public function selectColumnsWithWhereClause(string $tblName, array $columns, string $condition): array
+    {
+        $columns = $this->implodeArray($columns);
+        $query = "SELECT $columns FROM $tblName WHERE $condition";
+        $result = mysqli_query($this->conn, $query);
+        if (!mysqli_num_rows($result)) {
+            throw new DataDoesNotExistException("User name or password is incorrect!", 500);
+        }
+        return mysqli_fetch_assoc($result);
+    }
+
+    /**
+     * This function insert data to database and return response array
+     * @param string $tblName is table name
+     * @param array $columns is column set in table
+     * @return bool
+     */
+    public function create(string $tblName, array $columns, array $values): bool
+    {
+        $escapedValues = array_map(function ($values) {
+            return "'" . mysqli_real_escape_string($this->conn, $values) . "'";
+        }, $values);
+        $columns = $this->implodeArray($columns);
+        $values = $this->implodeArray($escapedValues);
+        $query = "INSERT INTO $tblName ($columns) VALUE ($values)";
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) {
+            throw new \Exception("Error Processing Request", 1);
+        }
+        return $result;
+    }
+
+    /**
+     * This function help to implode array using comma
+     * @param array $arr
+     * @return string
+     */
+    public function implodeArray(array $arr): string
+    {
+        return implode(', ', $arr);
     }
 }

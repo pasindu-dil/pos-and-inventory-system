@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$_SESSION['page_title'] = "Product";
+$_SESSION['page_title'] = "Category";
 ?>
 
 <!DOCTYPE html>
@@ -44,21 +44,16 @@ $_SESSION['page_title'] = "Product";
                             <div class="card my-4">
                                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                     <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
-                                        <h6 class="text-white text-capitalize pt-1">Products table</h6>
-                                        <div>
-                                            <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModel">
-                                                Add Product
-                                            </button>
-                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productBulkUpload">
-                                                Bulk Upload
-                                            </button>
-                                        </div>
+                                        <h6 class="text-white text-capitalize pt-1">Customer table</h6>
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCustomerModel">
+                                            Add Customer
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="card-body px-0 pb-2">
                                     <div class="table-responsive p-5 pt-0">
-                                        <table class="table align-items-center mb-0" id="productTable">
+                                        <table class="table align-items-center mb-0" id="customerTable">
                                             <thead>
                                                 <tr>
                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
@@ -77,55 +72,35 @@ $_SESSION['page_title'] = "Product";
                 </div>
             </div>
         </main>
-
-        <div class="modal fade" id="addProductModel" tabindex="-1" aria-labelledby="addProductModelLabel" aria-hidden="true">
+        <div class="modal fade" id="addCustomerModel" tabindex="-1" aria-labelledby="addCustomerModelLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" style="width: 600px;">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Loyalty Customer</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addProduct" action="../views/routehelpers/add_product_helper.php">
-                        <?php require('./forms/productForm.php'); ?>
+                    <form id="addCustomer">
+                        <?php require('./forms/customerForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#addProduct', '#addProductModel', '#productTable')">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
-        <div class="modal fade" id="editProductModel" tabindex="-1" aria-labelledby="editProductModel" aria-hidden="true">
+        <div class="modal fade" id="editCustomerModel" tabindex="-1" aria-labelledby="editCustomerModelLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" style="width: 600px;">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Product</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Loyalty Customer</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editProduct">
-                        <?php require('./forms/productForm.php'); ?>
+                    <form id="editCustomer">
+                        <?php require('./forms/customerForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Update</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="productBulkUpload" tabindex="-1" aria-labelledby="productBulkUpload" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content" style="width: 600px;">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bulk Products</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form id="productBulkUploadForm">
-                        <?php require('./forms/productBulkUpload.php'); ?>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#productBulkUploadForm', '#productBulkUpload', '#productTable')">Upload</button>
+                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
                         </div>
                     </form>
                 </div>
@@ -140,10 +115,9 @@ $_SESSION['page_title'] = "Product";
     <script src="../plugins/perfect-scrollbar.min.js"></script>
     <script src="../plugins/smooth-scrollbar.min.js"></script>
     <script src="../plugins/chartjs.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.js"></script>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../lib/chart/chart.min.js"></script>
     <script src="../lib/easing/easing.min.js"></script>
     <script src="../lib/waypoints/waypoints.min.js"></script>
@@ -155,54 +129,36 @@ $_SESSION['page_title'] = "Product";
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
-    <script src="https://malsup.github.io/jquery.form.js"></script>
+    <script type="text/javascript" src="../js/jquery.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
-    <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
-    <script type="text/javascript" src="../js/custom/notification.js"></script>
-    <script type="text/javascript" src="../js/custom/dataTable.js"></script>
+    <script type="text/javascript" src="../js/custom//FormOptions.js"></script>
+
     
     <script>
         $(document).ready(function () {
-            activeTab('product');
-            DataTableOption.initDataTable('productTable', '/');
+            activeTab('customer');
+            DataTableOption.initDataTable('customerTable', '/');
             let rules = {
                 name: {
-                    required: true,
-                    minlength: 4
-                },
-                remarks: {
-                    required: true,
-                    number: true
-                },
-                itemCode: {
-                    required: true,
-                    minlength: 3,
-                    maxlength: 20
-                },
-                sellingPrice: {
-                    required: true,
-                    number: true
-                },
-                quantity: {
-                    required: true,
-                    number: true
-                },
-                category: {
                     required: true
-                }
-            };
-            let bulkRules = {
-                bulk_file: {
+                },
+                gender: {
+                    required: true
+                },
+                mobile: {
+                    required: true,
+                    number: true,
+                    maxlength: 11,
+                    minlength: 11
+                },
+                nic: {
                     required: true,
                 }
             };
-            FormOptions.initValidation('#addProduct', rules);
-            FormOptions.initValidation('#editProduct', rules);
-            FormOptions.initValidation('#productBulkUploadForm', bulkRules);
-            DataTableOption.initDataTable('#productTable', '../views/routehelpers/product_datatable_helper.php');
+            FormOptions.initValidation('#addCustomer', rules);
+            FormOptions.initValidation('#editCustomer', rules);
         });
 
         var win = navigator.platform.indexOf('Win') > -1;
@@ -214,17 +170,11 @@ $_SESSION['page_title'] = "Product";
         }
 
         function submitForm() {
-            $('#addProduct').valid();
-            Notifications.success('Hello');
-            // $('#editProduct').valid();
-            // $('#productBulkUploadForm').valid();
-        }
-
-        function edit() {
-            
+            $('#addCustomer').valid();
+            $('#editCustomer').valid();
         }
     </script>
-    
+
     <script src="../js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
 </html>
