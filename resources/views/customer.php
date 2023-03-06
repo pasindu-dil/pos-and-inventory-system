@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $_SESSION['page_title'] = "Customer";
 ?>
 
@@ -56,11 +54,13 @@ $_SESSION['page_title'] = "Customer";
                                         <table class="table align-items-center mb-0" id="customerTable">
                                             <thead>
                                                 <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                                <th class="text-secondary opacity-7"></th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Gender</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Mobile Number</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NIC</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -133,13 +133,12 @@ $_SESSION['page_title'] = "Customer";
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/custom//FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
 
     
     <script>
         $(document).ready(function () {
             activeTab('customer');
-            DataTableOption.initDataTable('customerTable', '/');
             let rules = {
                 name: {
                     required: true
@@ -159,14 +158,15 @@ $_SESSION['page_title'] = "Customer";
             };
             FormOptions.initValidation('#addCustomer', rules);
             FormOptions.initValidation('#editCustomer', rules);
+            DataTableOption.initDataTable('#customerTable', '../../routes/customer_datatable_helper.php');
         });
 
-        var win = navigator.platform.indexOf('Win') > -1;
+        let win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-            damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            let options = {
+                damping: '0.5'
+            };
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
         function submitForm() {

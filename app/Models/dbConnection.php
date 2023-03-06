@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use App\Exceptions\DataDoesNotExistException;
+use Exception;
 use mysqli;
 use Symfony\Component\Dotenv\Dotenv;
+use Throwable;
 
 class dbConnection
 {
@@ -25,7 +27,7 @@ class dbConnection
 
         try {
             return new mysqli($servername, $username, $password, $database);
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             return $th;
         }
     }
@@ -38,7 +40,7 @@ class dbConnection
             if (mysqli_num_rows($result) > 0) {
                 return mysqli_fetch_all($result);
             }
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             return ["status" => "500", "msg" => $th];
         }
     }
@@ -52,7 +54,7 @@ class dbConnection
             if (mysqli_num_rows($result) > 0) {
                 return mysqli_fetch_all($result);
             }
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             return ["status" => "500", "msg" => $th];
         }
     }
@@ -69,7 +71,7 @@ class dbConnection
                 }
             }
             return $row;
-        } catch (\Throwable $th) {
+        } catch (Throwable $th) {
             //throw $th;
         }
     }
@@ -100,9 +102,7 @@ class dbConnection
         $values = $this->implodeArray($escapedValues);
         $query = "INSERT INTO $tblName ($columns) VALUE ($values)";
         $result = mysqli_query($this->conn, $query);
-        if (!$result) {
-            throw new \Exception("Error Processing Request", 1);
-        }
+        if (!$result) throw new Exception("Error Processing Request", 1);
         return $result;
     }
 

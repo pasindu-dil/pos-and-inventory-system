@@ -2,8 +2,8 @@
 
 use App\Controllers\ProductController;
 
-require '../../helpers/helpers.php';
+require '../resources/helpers/helpers.php';
 
 $controller = new ProductController();
-$response = $controller->dataTable($_REQUEST);
+$response = $controller->dataTable();
 echo json_encode($response);

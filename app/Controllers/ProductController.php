@@ -9,7 +9,8 @@ use mysqli_sql_exception;
 class ProductController extends Controller
 {
     /**
-     * 
+     * @param array $request
+     * @return array
      */
     public function store(array $request): array
     {
@@ -30,7 +31,7 @@ class ProductController extends Controller
                     'price',
                     'quantity',
                     'category_id',
-                    'cub_category_id',
+                    'sub_category_id',
                     'remarks',
                     'description',
                 ],
@@ -54,29 +55,49 @@ class ProductController extends Controller
     }
 
     /**
-     * 
+     * @return array[]
      */
-    public function dataTable(array $request): array
+    public function dataTable(): array
     {
         $data[][] = [];
         $i = 0;
-        $deleteBtn = "<i class='icon-md icon-trash'>Delete</i>";
+        $deleteBtn = "";
         $response = $this->connection->fetchAccoc('products');
         $canDelete = '';
+        $editBtn = '';
+        if (isset($_SESSION["role"]) && $_SESSION["role"] == "Super Admin")
+            $canDelete = true;
         foreach ($response as $key => $value) {
+            $editBtn = "<i class='icon-md icon-trash'>Edit</i>";
+            if ($canDelete) {
+                $deleteBtn = "<i class='icon-md icon-trash'>Delete</i>";
+            }
             $data[$i] = [
+                $value['id'],
                 $value['name'],
                 $value['item_code'],
                 "Rs. " . $value['price'],
                 $value['quantity'],
+                $value['category_id'],
+                $value['sub_category_id'],
                 $value['remarks'],
                 $value['description'],
-                $deleteBtn
+                $deleteBtn . $editBtn
             ];
             $i++;
         }
         return [
             'data' => $data
         ];
+    }
+
+    /**
+     * @param array $request
+     * @return array
+     */
+    public function addBulk(array $request): array
+    {
+        move_uploaded_file($request['bulk_file'], '../storage');
+        return [];
     }
 }

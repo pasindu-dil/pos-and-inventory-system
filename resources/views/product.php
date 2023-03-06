@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 $_SESSION['page_title'] = "Product";
 ?>
 
@@ -50,9 +48,9 @@ $_SESSION['page_title'] = "Product";
                                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModel">
                                                 Add Product
                                             </button>
-                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productBulkUpload">
-                                                Bulk Upload
-                                            </button>
+<!--                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productBulkUpload">-->
+<!--                                                Bulk Upload-->
+<!--                                            </button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -61,11 +59,16 @@ $_SESSION['page_title'] = "Product";
                                         <table class="table align-items-center mb-0" id="productTable">
                                             <thead>
                                                 <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                                <th class="text-secondary opacity-7"></th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">#</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">Name</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ">Item Code</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Price (Rs)</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Quantity</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Category</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Sub Category</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Remarks</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Description</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Action</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -85,7 +88,7 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addProduct" action="../views/routehelpers/add_product_helper.php">
+                    <form id="addProduct" method="post" action="../../routes/add_product_helper.php">
                         <?php require('./forms/productForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -121,7 +124,7 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bulk Products</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="productBulkUploadForm">
+                    <form id="productBulkUploadForm" method="post" action="../../routes/bulk_upload_helper.php" enctype="multipart/form-data">
                         <?php require('./forms/productBulkUpload.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -202,7 +205,7 @@ $_SESSION['page_title'] = "Product";
             FormOptions.initValidation('#addProduct', rules);
             FormOptions.initValidation('#editProduct', rules);
             FormOptions.initValidation('#productBulkUploadForm', bulkRules);
-            DataTableOption.initDataTable('#productTable', '../views/routehelpers/product_datatable_helper.php');
+            DataTableOption.initDataTable('#productTable', '../../routes/product_datatable_helper.php');
         });
 
         var win = navigator.platform.indexOf('Win') > -1;

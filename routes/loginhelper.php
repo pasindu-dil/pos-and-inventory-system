@@ -2,7 +2,7 @@
 
 use App\Controllers\LoginController;
 
-require '../../helpers/helpers.php';
+require '../resources/helpers/helpers.php';
 
 $loginController = new LoginController();
 $response = $loginController->login($_REQUEST);
