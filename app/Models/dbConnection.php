@@ -82,7 +82,7 @@ class dbConnection
         $query = "SELECT $columns FROM $tblName WHERE $condition";
         $result = mysqli_query($this->conn, $query);
         if (!mysqli_num_rows($result)) {
-            throw new DataDoesNotExistException("User name or password is incorrect!", 500);
+            return [];
         }
         return mysqli_fetch_assoc($result);
     }

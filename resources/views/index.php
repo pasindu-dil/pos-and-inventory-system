@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use App\Controllers\LoginController;
 
 require 'resources\helpers\helpers.php';
@@ -279,7 +279,7 @@ require 'resources\helpers\helpers.php';
               let response = JSON.parse(data);
               if (response.success) {
                 Notifications.success(response.msg);
-                window.location.href = "http://localhost:8000/resources/views/dashboard.php";
+                window.location.href = "resources/views/dashboard.php";
               } else {
                 Notifications.errorMsg(response.msg)
               }

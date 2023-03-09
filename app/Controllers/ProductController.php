@@ -59,6 +59,7 @@ class ProductController extends Controller
      */
     public function dataTable(): array
     {
+        session_start();
         $data[][] = [];
         $i = 0;
         $deleteBtn = "";
@@ -68,9 +69,11 @@ class ProductController extends Controller
         if (isset($_SESSION["role"]) && $_SESSION["role"] == "Super Admin")
             $canDelete = true;
         foreach ($response as $key => $value) {
-            $editBtn = "<i class='icon-md icon-trash'>Edit</i>";
+            $category = $this->connection->selectColumnsWithWhereClause('categories', ['name'], "id=$value[category_id]");
+            $subCategory = $this->connection->selectColumnsWithWhereClause('sub_categories', ['sub_category_name'], "id=$value[category_id]");
+            $editBtn = "<button><i class='icon-md icon-trash' data-id='$value[id]' data-name='$value[name]' data-item_code='$value[item_code]' data-price='$value[price]' data-quantity='$value[quantity]' data-category_id='$value[category_id]' data-sub_category_id='$value[sub_category_id]' data-remarks='$value[remarks]' data-description='$value[description]' onClick='edit(this)'>Edit</i></button>";
             if ($canDelete) {
-                $deleteBtn = "<i class='icon-md icon-trash'>Delete</i>";
+                $deleteBtn = "<button><i class='icon-md icon-trash' onClick='deleteItem($value[id])' >Delete</i></button>";
             }
             $data[$i] = [
                 $value['id'],
@@ -78,8 +81,8 @@ class ProductController extends Controller
                 $value['item_code'],
                 "Rs. " . $value['price'],
                 $value['quantity'],
-                $value['category_id'],
-                $value['sub_category_id'],
+                $category['name'],
+                $subCategory ? $subCategory['sub_category_id'] : '',
                 $value['remarks'],
                 $value['description'],
                 $deleteBtn . $editBtn
@@ -99,5 +102,23 @@ class ProductController extends Controller
     {
         move_uploaded_file($request['bulk_file'], '../storage');
         return [];
+    }
+
+    /**
+     * 
+     */
+    public function getCategories(): array
+    {
+        $response = $this->connection->fetchAccoc('categories');
+        return $response;
+    }
+
+    /**
+     * 
+     */
+    public function getSubCategories(): array
+    {
+        $response = $this->connection->fetchAccoc('sub_categories');
+        return $response;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+session_start();
 $_SESSION['page_title'] = "Product";
 ?>
 
@@ -223,8 +224,29 @@ $_SESSION['page_title'] = "Product";
             // $('#productBulkUploadForm').valid();
         }
 
-        function edit() {
-            
+        function edit(result) {
+            let name = result.dataset.name;
+            let itmCode = result.dataset.item_code;
+            let price = result.dataset.price;
+            let qty = result.dataset.quantity;
+            let category = result.dataset.category_id;
+            let subCategory = result.dataset.sub_category_id;
+            let remark = result.dataset.remarks;
+            let description = result.dataset.description;
+            $('#editProductModel').find('#productName').val(name);
+            $('#editProductModel').find('#productItemCode').val(itmCode);
+            $('#editProductModel').find('#productSellingPrice').val(price);
+            $('#editProductModel').find('#productQuantity').val(qty);
+            $('#editProductModel').find('#productCategory').val(category);
+            $('#editProductModel').find('#productSubCategory').val(subCategory);
+            $('#editProductModel').find('#productRemarks').val(remark);
+            $('#editProductModel').find('#productDescription').val(description);
+            $('#editProductModel').modal('show');
+        }
+
+        function deleteItem(id)
+        {
+            console.log(id);
         }
     </script>
     

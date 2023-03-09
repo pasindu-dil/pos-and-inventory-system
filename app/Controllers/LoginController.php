@@ -12,6 +12,9 @@ class LoginController extends Controller
     {
         try {
             $values = $this->connection->selectColumnsWithWhereClause('users', ['email', 'password', 'id', 'role_id'], "email='$request[email]'");
+            if (empty($values)) {
+                throw new DataDoesNotExistException("User name or password is incorrect!", "401");
+            }
             if ($values && $values['email'] === $request['email'] && $values['password'] === $request['password']) {
                 $_SESSION['user_id'] = $values['id'];
                 $role = $this->connection->selectColumnsWithWhereClause('roles', ['role_name'], "id=$values[role_id]");
