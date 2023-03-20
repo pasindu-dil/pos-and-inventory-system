@@ -115,4 +115,26 @@ class dbConnection
     {
         return implode(', ', $arr);
     }
+
+    /**
+     * Update data in database.
+     */
+    public function updateWithId(string $tblName, string $columns, int $id): bool
+    {
+        $query = "UPDATE $tblName SET $columns WHERE id = $id";
+        $result = mysqli_query($this->conn, $query);
+        if (!$result) throw new Exception("Error Processing Request", 1);
+        return $result;
+    }
+
+    /**
+     * 
+     */
+    public function deleteById(string $tableName, int $id)
+    {
+        $query = "DELETE FROM $tableName WHERE id=$id";
+        $result = mysqli_query($this->conn, $query);
+        // if (!$result) throw new Exception("Error Processing Request", 1);
+        return $result;
+    }
 }

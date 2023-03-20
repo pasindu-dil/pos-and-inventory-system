@@ -1,5 +1,5 @@
 <?php
-$_SESSION['page_title'] = "Customer";
+$_SESSION['page_title'] = "Category";
 ?>
 
 <!DOCTYPE html>
@@ -79,11 +79,11 @@ $_SESSION['page_title'] = "Customer";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Loyalty Customer</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addCustomer">
+                    <form id="addCustomer" method="POST" action="../../routes/add_customer_helper.php">
                         <?php require('./forms/customerForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#addCustomer', '#addCustomerModel', '#customerTable')">Save</button>
                         </div>
                     </form>
                 </div>
@@ -96,11 +96,11 @@ $_SESSION['page_title'] = "Customer";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Loyalty Customer</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editCustomer">
+                    <form id="editCustomer" method="POST" action="../../routes/update_customer_helper.php">
                         <?php require('./forms/customerForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.updateForm('#editCustomer', '#editCustomerModel', '#customerTable')">Save</button>
                         </div>
                     </form>
                 </div>
@@ -129,11 +129,15 @@ $_SESSION['page_title'] = "Customer";
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="../js/jquery.form.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
+    <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
     <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/notification.js"></script>
+    <script type="text/javascript" src="../js/custom/dataTable.js"></script>
+    <script type="text/javascript" src="../js/sweetalert.js"></script>
 
     
     <script>
@@ -169,9 +173,27 @@ $_SESSION['page_title'] = "Customer";
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
-        function submitForm() {
-            $('#addCustomer').valid();
-            $('#editCustomer').valid();
+        function edit(result) {
+            console.log(result);
+            let id = result.dataset.id;
+            let name = result.dataset.name;
+            let gender = result.dataset.gender;
+            let mobile = result.dataset.mobile;
+            let nic = result.dataset.nic;
+            let email = result.dataset.email;
+            let address = result.dataset.address;
+            $('#editCustomerModel').find('#customerName').val(name);
+            $('#editCustomerModel').find('#customerGender').val(gender);
+            $('#editCustomerModel').find('#customerAddress').val(address);
+            $('#editCustomerModel').find('#customerMobile').val(mobile);
+            $('#editCustomerModel').find('#customerNic').val(nic);
+            $('#editCustomerModel').find('#customerEmail').val(email);
+            $('#editCustomerModel').find('#id').val(id);
+            $('#editCustomerModel').modal('show');
+        }
+
+        function deleteItem(id) {
+            FormOptions.deleteForm('../../routes/customer_delete_helper.php?id=' + id, '#customerTable', id);
         }
     </script>
 

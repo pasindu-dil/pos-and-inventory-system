@@ -44,19 +44,19 @@ use App\Controllers\ProductController;
             </select>
         </div>
     </div>
-    <div class="form-group row mb-2">
-        <label class="col-sm-3 col-form-label" for="productSubCategory">Sub Category</label>
-        <div class="col-sm-8">
-            <select class="form-select form-control is-valid" name="subCategory" id="productSubCategory" aria-label="Default select example" aria-placeholder="Sub category">
-                <option selected disabled>Select category</option>
-                <?php
-                    foreach($subCat as $value){
-                        echo "<option value='$value[id]'>$value[name]</option>";
-                    }
-                ?>
-            </select>
-        </div>
-    </div>
+<!--    <div class="form-group row mb-2">-->
+<!--        <label class="col-sm-3 col-form-label" for="productSubCategory">Sub Category</label>-->
+<!--        <div class="col-sm-8">-->
+<!--            <select class="form-select form-control is-valid" name="subCategory" id="productSubCategory" aria-label="Default select example" aria-placeholder="Sub category">-->
+<!--                <option selected disabled value="">Select category</option>-->
+<!--                --><?php
+//                    foreach($subCat as $value){
+//                        echo "<option value='$value[id]'>$value[name]</option>";
+//                    }
+//                ?>
+<!--            </select>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="form-group row mb-2">
         <label class="col-sm-3 col-form-label" for="productRemarks">Remarks</label>
         <div class="col-sm-8">
@@ -69,4 +69,5 @@ use App\Controllers\ProductController;
             <textarea class="form-control is-valid" name="description" placeholder="Leave a description here" id="productDescription"></textarea>
         </div>
     </div>
+    <input type="hidden" class="form-control is-invalid" name="id" id="id">
 </div>
