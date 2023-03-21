@@ -1,11 +1,10 @@
 <?php
-session_start();
-
 $_SESSION['page_title'] = "Product";
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +28,13 @@ $_SESSION['page_title'] = "Product";
     <link id="pagestyle" href="../css/material-dashboard.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../plugins/jquery.toast/jquery.toast.min.css" />
     <link rel="stylesheet" type="text/css" href="../plugins/jquery-datatable/jquery-datatables.css" />
+    <style>
+        .swal2-popup {
+            font-size: 14px !important;
+        }
+    </style>
 </head>
+
 <body class="g-sidenav-show  bg-gray-200">
     <div class="container-fluid position-relative p-0">
         <?php require_once('./sidebar.php'); ?>
@@ -50,9 +55,9 @@ $_SESSION['page_title'] = "Product";
                                             <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModel">
                                                 Add Product
                                             </button>
-                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productBulkUpload">
-                                                Bulk Upload
-                                            </button>
+                                            <!--                                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#productBulkUpload">-->
+                                            <!--                                                Bulk Upload-->
+                                            <!--                                            </button>-->
                                         </div>
                                     </div>
                                 </div>
@@ -61,11 +66,16 @@ $_SESSION['page_title'] = "Product";
                                         <table class="table align-items-center mb-0" id="productTable">
                                             <thead>
                                                 <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                                <th class="text-secondary opacity-7"></th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder">#</th>
+                                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">Name</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ">Item Code</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Price (Rs)</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Quantity</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Category</th>
+                                                    <!--                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Sub Category</th>-->
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Remarks</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Description</th>
+                                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Action</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -85,7 +95,7 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addProduct" action="../views/routehelpers/add_product_helper.php">
+                    <form id="addProduct" method="post" action="../../routes/add_product_helper.php">
                         <?php require('./forms/productForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -103,11 +113,11 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Product</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editProduct">
+                    <form id="editProduct" method="post" action="../../routes/update_product_helper.php">
                         <?php require('./forms/productForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Update</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#editProduct', '#editProductModel', '#productTable')">Update</button>
                         </div>
                     </form>
                 </div>
@@ -121,11 +131,11 @@ $_SESSION['page_title'] = "Product";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Bulk Products</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="productBulkUploadForm">
+                    <form id="productBulkUploadForm" method="post" action="../../routes/bulk_upload_helper.php" enctype="multipart/form-data">
                         <?php require('./forms/productBulkUpload.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#productBulkUploadForm', '#productBulkUpload', '#productTable')">Upload</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.updateForm('#productBulkUploadForm', '#productBulkUpload', '#productTable')">Upload</button>
                         </div>
                     </form>
                 </div>
@@ -155,7 +165,7 @@ $_SESSION['page_title'] = "Product";
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
-    <script src="https://malsup.github.io/jquery.form.js"></script>
+    <script src="../js/jquery.form.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
     <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
@@ -163,9 +173,10 @@ $_SESSION['page_title'] = "Product";
     <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
     <script type="text/javascript" src="../js/custom/notification.js"></script>
     <script type="text/javascript" src="../js/custom/dataTable.js"></script>
-    
+    <script type="text/javascript" src="../js/sweetalert.js"></script>
+
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             activeTab('product');
             DataTableOption.initDataTable('productTable', '/');
             let rules = {
@@ -202,15 +213,15 @@ $_SESSION['page_title'] = "Product";
             FormOptions.initValidation('#addProduct', rules);
             FormOptions.initValidation('#editProduct', rules);
             FormOptions.initValidation('#productBulkUploadForm', bulkRules);
-            DataTableOption.initDataTable('#productTable', '../views/routehelpers/product_datatable_helper.php');
+            DataTableOption.initDataTable('#productTable', '../../routes/product_datatable_helper.php');
         });
 
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-            damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
         function submitForm() {
@@ -220,11 +231,34 @@ $_SESSION['page_title'] = "Product";
             // $('#productBulkUploadForm').valid();
         }
 
-        function edit() {
-            
+        function edit(result) {
+            let id = result.dataset.id;
+            let name = result.dataset.name;
+            let itmCode = result.dataset.item_code;
+            let price = result.dataset.price;
+            let qty = result.dataset.quantity;
+            let category = result.dataset.category_id;
+            let subCategory = result.dataset.sub_category_id;
+            let remark = result.dataset.remarks;
+            let description = result.dataset.description;
+            $('#editProductModel').find('#productName').val(name);
+            $('#editProductModel').find('#productItemCode').val(itmCode);
+            $('#editProductModel').find('#productSellingPrice').val(price);
+            $('#editProductModel').find('#productQuantity').val(qty);
+            $('#editProductModel').find('#productCategory').val(category);
+            $('#editProductModel').find('#productSubCategory').val(subCategory);
+            $('#editProductModel').find('#productRemarks').val(remark);
+            $('#editProductModel').find('#productDescription').val(description);
+            $('#editProductModel').find('#id').val(id);
+            $('#editProductModel').modal('show');
+        }
+
+        function deleteItem(id) {
+            FormOptions.deleteForm('../../routes/product_delete_helper.php?id=' + id, '#productTable', id);
         }
     </script>
-    
+
     <script src="../js/material-dashboard.min.js?v=3.0.4"></script>
 </body>
+
 </html>
