@@ -267,7 +267,7 @@
                             background-color: red;
                         }
                     </style>
-                    <!-- <div class="modal fade" id="view_register_modal" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal fade" id="view_register_modal" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -346,9 +346,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
                     <!-- Modal -->
-                    <!-- <div class="modal fade" id="close_register_modal" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal fade" id="close_register_modal" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <form method="POST" action="https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin/sale/closeregister/7" accept-charset="UTF-8"><input name="_token" type="hidden" value="uPdtEncQmMIRsjyI2cTJaPbOZIYvvMZRJ7RxpPqH">
@@ -443,8 +443,8 @@
                                 </form>
                             </div>
                         </div>
-                    </div> -->
-                    <!-- <div class="row">
+                    </div>
+                    <div class="row">
                         <div class="col-md-7">
                             <div class="card card-default collapsed-card">
                                 <div class="card-header">
@@ -456,7 +456,7 @@
                                     <!-- /.card-tools -->
                                 </div>
                                 <!-- /.card-header -->
-                                <!-- <div class="card-body" style="overflow-y: scroll;height: 20rem;">
+                                <div class="card-body" style="overflow-y: scroll;height: 20rem;">
                                     <div class="table-responsive">
                                         <table id="myTable" class="table table-striped">
                                             <thead>
@@ -485,9 +485,9 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div> -->
+                                </div>
                                 <!-- /.card-body -->
-                            <!-- </div>
+                            </div>
                             <div class="card col-md-12">
                                 <div class="card-body">
                                     <div class="input-group">
@@ -503,36 +503,34 @@
                                         <ul id="searchResult" class="searchResult"></ul>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
-                            <!-- <form method="POST" action="https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin/sale/storebyname" accept-charset="UTF-8" id="form"><input name="_token" type="hidden" value="uPdtEncQmMIRsjyI2cTJaPbOZIYvvMZRJ7RxpPqH"> -->
+                            <form method="POST" action="https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin/sale/storebyname" accept-charset="UTF-8" id="form"><input name="_token" type="hidden" value="uPdtEncQmMIRsjyI2cTJaPbOZIYvvMZRJ7RxpPqH">
 
-                                <!-- <div class="card" style="height: 31rem">
+                                <div class="card" style="height: 31rem">
                                     <div class="card-body">
 
                                         <h3 class="text-center text-danger " id="head_alert"></h3>
 
                                         <div class="table-responsive" style="overflow-y: scroll;height: 28rem;">
-                                            <div class="card-body px-0 pb-2">
-                                                <div class="table-responsive p-5 pt-0">
-                                                    <table class="table align-items-center mb-0" id="saleTable">
-                                                        <thead>
-                                                            <tr>
-                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder">#</th>
-                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder ps-2">Name</th>
-                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder ">Item Code</th>
-                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Price (Rs)</th>
-                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Quantity</th>
-                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                            <table class="table table-bordered table-head-fixed saleTable">
+                                                <thead class="bg-extralight">
+                                                    <tr>
+                                                        <th class="text-nowrap text-center">Action</th>
+                                                        <th class="text-nowrap text-center">Sl No</th>
+                                                        <th>Articles Description</th>
+                                                        <th class="text-right">Quantity</th>
+                                                        <th class="text-right">Selling Price</th>
+                                                        <th class="text-right">Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="productTbody">
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                </div> -->
-                                <!-- <div class="card">
+                                </div>
+                                <div class="card">
                                     <div class="card-body">
                                         <div class="table-responsive">
                                             <table id="sale_table" class="table table-bordered table-striped">
@@ -570,9 +568,9 @@
                                         </div>
 
                                     </div>
-                                </div> -->
+                                </div>
                         </div>
-                        <!-- <div class="col-md-5 pb-2">
+                        <div class="col-md-5 pb-2">
 
                             <div class="mb-2 text-center">
                                 <button type="button" class="btn btn-sm btn-success" id="btnViewRegister">
@@ -583,15 +581,15 @@
                                 <a href="../views/dashboard.php" data-toggle="tooltip" data-placement="bottom" data-original-title="Back to Invoice" class="btn btn-sm btn-primary"><i class="fa fa-backward"></i> Back</a>
 
 
-                            </div> -->
-                            <!-- <div class="card card-primary collapsed-card">
+                            </div>
+                            <div class="card card-primary collapsed-card">
                                 <div class="card-header">
                                     <div class="card-title">Your Recent Transactions</div>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                         </button>
                                     </div>
-                                </div> -->
+                                </div>
 
 
                                 <!-- /.card-header -->
@@ -614,19 +612,18 @@
                                         <div class="card-body">
                                             <div class="tab-content" id="custom-tabs-three-tabContent">
                                                 <div class="tab-pane fade show active" id="custom-paid" role="tabpanel" aria-labelledby="custom-paid-tab">
-                                                    <table class="table table-bordered table-striped" cellspacing="0" width="100%" id="saleTable">
+                                                    <table class="table table-bordered table-striped" cellspacing="0" width="100%" id="finaltable">
                                                         <thead>
-                                                            <th>ID</th>
-                                                            <th>Name</th>
-                                                            <th>Item Code</th>
-                                                            <th>Price</th>
-                                                            <th>Quantity</th>
+                                                            <th>Sl</th>
+                                                            <th>Bill No</th>
+                                                            <th>Amount</th>
+                                                            <th>Action</th>
                                                         </thead>
                                                         <tbody>
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                                <!-- <div class="tab-pane fade" id="custom-due" role="tabpanel" aria-labelledby="custom-due-tab">
+                                                <div class="tab-pane fade" id="custom-due" role="tabpanel" aria-labelledby="custom-due-tab">
                                                     <table class="table table-bordered table-striped" cellspacing="0" width="100%" id="duetable">
                                                         <thead>
                                                             <th>Sl</th>
@@ -651,7 +648,7 @@
                                                         <tbody>
                                                         </tbody>
                                                     </table>
-                                                </div> -->
+                                                </div>
                                             </div>
                                         </div>
                                         <!-- /.card -->
@@ -663,13 +660,12 @@
                             <div class="card">
                                 <div class="card-body">
 
-                                    <form action="../../routes/add_sales_helper" method="post">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text">Item ID<span style="color:red;">*</span></span>
+                                            <span class="input-group-text">Customer<span style="color:red;">*</span></span>
                                         </div>
-                                        <input type="text" class="form-control" autocomplete="off" value='' id="customer_mobile">
-                                        <input type="hidden" id="customer_id" name="itemId" value=''>
+                                        <input type="text" class="form-control" autocomplete="off" value='' id="customer_mobile" placeholder="Customer Name or Mobile">
+                                        <input type="hidden" id="customer_id" name="customer_id" value=''>
 
                                         <div class="input-group-append">
                                             <button type="button" class="input-group-text" data-toggle="modal" data-target="#modelId">
@@ -683,38 +679,23 @@
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">Quantity<span style="color:red;">*</span></span>
+                                                    <span class="input-group-text">Cus. Name<span style="color:red;">*</span></span>
                                                 </div>
-                                                <input id="cus_name" class="form-control" placeholder="qty" name="cus_name" type="text" value="">
+                                                <input id="cus_name" class="form-control" disabled="disabled" placeholder="Customer Name" name="cus_name" type="text" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text">Unit Price</span>
+                                                    <span class="input-group-text">Cus. Address</span>
                                                 </div>
-                                                <input id="cus_address" style="resize: none;font-size: 11px;" class="form-control" disabled="disabled"  name="unitPrice" type="text" value="">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Total Price</span>
-                                                </div>
-                                                <input id="cus_address" style="resize: none;font-size: 11px;" class="form-control"  name="totlPrice" type="text" value="">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input id="cus_address" style="resize: none;font-size: 11px;" class="form-control" onclick="submitForm()"  name="submit" type="button" value="Submit">
+                                                <input id="cus_address" style="resize: none;font-size: 11px;" class="form-control" disabled="disabled" placeholder="Customer Address" name="cus_address" type="text" value="">
                                             </div>
                                         </div>
 
                                     </div>
-                                    </form>
 
-                                    <!-- <div class="row" new>
+                                    <div class="row" new>
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
@@ -734,8 +715,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div> -->
-                                    <!-- <table class="table table-striped recieptdiv d-none mb-3">
+                                    </div>
+                                    <table class="table table-striped recieptdiv d-none mb-3">
                                         <tr>
                                             <td>Due/Balance Amount (Rs.)</td>
                                             <td>:</td>
@@ -761,7 +742,7 @@
                                             <th>:</th>
                                             <td id="grandtotalamount" class="text-right">0.0</td>
                                         </tr>
-                                    </table> -->
+                                    </table>
                                 </div>
                             </div>
 
@@ -771,46 +752,407 @@
 
 
                 </div>
+                <!-- Button trigger modal -->
+
+                <div class="modal fade" id="paymentmodal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Total Receipt</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form id="confirmForm" action="">
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  ">
+                                                                <label class="control-label ">Bill Amount:<span style="color:red;">*</span></label>
+                                                                <input id="bill_amount" class="form-control " min="0" name="bill_amount" type="number" value="0.0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  ">
+                                                                <label class="control-label ">Discount Amount:</label>
+                                                                <input id="discount" class="form-control " min="0" name="discount" type="number" value="0.0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  ">
+                                                                <label class="control-label ">Paying Amount:<span style="color:red;">*</span></label>
+                                                                <input id="total_bill" class="form-control " min="0" name="total_bill" type="number" value="0">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  ">
+                                                                <label class="control-label ">Due Amount:<span style="color:red;">*</span></label>
+                                                                <input id="due_amount" class="form-control " min="0" name="due_amount" type="number" value="0">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-group  ">
+                                                            <label class="control-label ">Payment Note: </label>
+                                                            <textarea id="details" class="form-control " rows="2" cols="5" name="details"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card card-solid">
+                                                <div class="card-body card-deck" style="font-size: 11px;">
+                                                    <div class="col-md-12">
+                                                        <strong>
+                                                            Total Items:
+                                                        </strong>
+                                                        <br>
+                                                        <span class="lead text-bold total_quantity">0</span>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <hr>
+                                                        <strong>
+                                                            Old Due/Balance:
+                                                        </strong>
+                                                        <br>
+                                                        <span class="lead text-bold total_duebalance_span" style="color: #d81b60;font-size:16px">0.00</span> +
+                                                        <span class="lead text-bold total_payable_span" style="color: #d81b60;font-size:16px">0.00</span> <br>=
+                                                        <span class="lead text-bold grand_total_payable_span" style="color: #fd7e14;">0.00</span>
+                                                    </div>
+
+                                                    <div class="col-md-12">
+                                                        <hr>
+                                                        <strong>
+                                                            Total Payment:
+                                                        </strong>
+                                                        <br>
+                                                        <span class="lead text-bold total_payment_span" style="color: #28a745;">0.00</span>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <hr>
+                                                        <strong>
+                                                            Discount Amount:
+                                                        </strong>
+                                                        <br>
+                                                        <span class="lead text-bold discount_amount_span" style="color: #fd7e14;">0.00</span>
+                                                    </div>
 
 
-                    <!--   Core JS Files   -->
-                    <script src="../js/core/popper.min.js"></script>
-                    <script src="../js/custom/dataTable.js"></script>
-                    <script src="../js/core/bootstrap.min.js"></script>
-                    <script src="../plugins/perfect-scrollbar.min.js"></script>
-                    <script src="../plugins/smooth-scrollbar.min.js"></script>
-                    <script src="../plugins/chartjs.min.js"></script>
-                    <script type="text/javascript" src="../js/jquery.js"></script>
+                                                    <div class="col-md-12" style="border-top: 3px solid black">
+                                                        <hr>
+                                                        <strong>
+                                                            Due Amount:
+                                                        </strong>
+                                                        <br>
+                                                        <span class="lead text-bold balance_due_span" style="color: #d81b60;font-size:16px">0.00</span>
+                                                    </div>
 
-                    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
-                    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
-                    <script src="../lib/chart/chart.min.js"></script>
-                    <script src="../lib/easing/easing.min.js"></script>
-                    <script src="../lib/waypoints/waypoints.min.js"></script>
-                    <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
-                    <script src="../lib/tempusdominus/js/moment.min.js"></script>
-                    <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
-                    <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-                    <!-- Template Javascript -->
-                    <script src="../js/main.js"></script>
-                    <script src="../js/App.js"></script>
-                    <script src="../js/jquery.form.js"></script>
-                    <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
-                    <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
-                    <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
-                    <script type="text/javascript" src="../js/jquery.validate.js"></script>
-                    <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
-                    <script type="text/javascript" src="../js/custom/notification.js"></script>
-                    <script type="text/javascript" src="../js/custom/dataTable.js"></script>
-                    <script type="text/javascript" src="../js/sweetalert.js"></script>
+
+                                                </div>
+                                                <!-- /.box-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" id="confirm_account" class="btn btn-primary">Confirm</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Customer Entry</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-12 d-flex justify-content-center">
+                                        <div class="col-md-12">
+                                            <!-- form start -->
+                                            <div class="">
+                                                <form id="formCustomer" method="POST" enctype="multipart/form-data">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group text-right">
+                                                            <button type="submit" id="cus_store_btn" class="btn btn-sm btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  clear">
+                                                                <label class="control-label clear">Name<span style="color:red;">*</span></label>
+                                                                <input class="form-control" id="name" required="required" name="name" type="text" value="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group  clear">
+                                                                <label class="control-label clear">Mobile<span style="color:red;">*</span></label>
+                                                                <input class="form-control" id="mobile" required="required" name="mobile" type="text" value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group  clear">
+                                                        <label class="control-label clear">Email</label>
+                                                        <input class="form-control" id="email" name="email" type="email" value="">
+                                                    </div>
+                                                    <div class="form-group  clear">
+                                                        <label class="control-label clear">Address<span style="color:red;">*</span></label>
+                                                        <textarea class="form-control" id="address" rows="3" required="required" name="address" cols="50"></textarea>
+                                                    </div>
+                                                    <div class="form-group   ">
+                                                        <label class="control-label clear"> Gender</label>
+                                                        <select id="gender" class="form-control" name="gender">
+                                                            <option value="1">Male</option>
+                                                            <option value="2">Female</option>
+                                                            <option value="3">Other</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group  clear">
+                                                        <label class="control-label clear">NID</label>
+                                                        <input class="form-control" id="nid" name="nid" type="text" value="">
+                                                    </div>
+                                                    <div class="form-group  clear">
+                                                        <label class="control-label clear">Opening Balance</label>
+                                                        <input class="form-control" min="0" name="opening_balance" type="number" value="0">
+                                                    </div>
+                                                    <div class="form-group   ">
+                                                        <label class="control-label clear"> Recipt Type</label>
+                                                        <select id="receipt_type" class="form-control" name="receipt_type">
+                                                            <option value="2">Bill to Bill</option>
+                                                            <option value="1">Ledger</option>
+                                                        </select>
+                                                    </div>
+
+                                                </form>
+                                                <!-- /.card-body -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <!-- start - This is for export functionality only -->
                     <!-- end - This is for export functionality only -->
-                    
-                    <script type="text/javascript">
-                        
+                    <script>
+                        function readImageURL(input) {
+                            if (input.files && input.files[0]) {
+                                var reader = new FileReader();
+                                reader.onload = function(e) {
+                                    $("#view_uploading_img").removeClass('d-none');
+                                    $('#view_uploading_img_src').attr('src', e.target.result);
+                                }
+                                $(input).parent().children().eq(1).html(input.files[0].name);
+
+                                reader.readAsDataURL(input.files[0]);
+                            }
+                        }
+
                         $(document).ready(function() {
-                            DataTableOption.initDataTable('#saleTable', '../../routes/product_datatable_helper.php');
+                            $("#total_bill").focus(function() {
+                                $(this).select();
+                            });
+                            $("#discount").focus(function() {
+                                $(this).select();
+                            });
+                        });
+                    </script>
+                    <script type="text/javascript">
+                        var i = 0;
+                        var products = [{
+                            "id": 2,
+                            "product_id": 2,
+                            "code": {
+                                "id": 2,
+                                "product_id": 2,
+                                "code": "aas",
+                                "created_at": "2023-01-17T10:24:21.000000Z",
+                                "updated_at": "2023-01-17T10:24:21.000000Z",
+                                "deleted_at": null
+                            },
+                            "created_at": "2023-01-17T10:24:21.000000Z",
+                            "updated_at": "2023-02-18T10:50:50.000000Z",
+                            "deleted_at": null,
+                            "name": "elephant",
+                            "description": "aefad ads das d sad asd sa das d sa sa as das ds a",
+                            "price": 0,
+                            "unit": -2.9900000000000002131628207280300557613372802734375,
+                            "mrp": 10000,
+                            "min_mrp": null,
+                            "ena": "0.039",
+                            "alert_quantity": 20,
+                            "warranty": 0,
+                            "status": 1,
+                            "category_id": 0,
+                            "sub_category_id": 0,
+                            "imagefile": "8fd67fddfe06d22391f14d90591235f0.jpg",
+                            "code_text": "aas"
+                        }, {
+                            "id": 1,
+                            "product_id": 1,
+                            "code": {
+                                "id": 1,
+                                "product_id": 1,
+                                "code": "69886",
+                                "created_at": "2023-01-17T10:09:10.000000Z",
+                                "updated_at": "2023-01-17T10:09:10.000000Z",
+                                "deleted_at": null
+                            },
+                            "created_at": "2023-01-17T10:09:10.000000Z",
+                            "updated_at": "2023-02-06T20:53:43.000000Z",
+                            "deleted_at": null,
+                            "name": "Muhamassmad Qasim",
+                            "description": null,
+                            "price": 100,
+                            "unit": -7.95999999999999996447286321199499070644378662109375,
+                            "mrp": 100,
+                            "min_mrp": 100,
+                            "ena": "1232312",
+                            "alert_quantity": 50,
+                            "warranty": 0,
+                            "status": 1,
+                            "category_id": 0,
+                            "sub_category_id": 0,
+                            "imagefile": "",
+                            "code_text": "69886"
+                        }, {
+                            "id": 4,
+                            "product_id": 4,
+                            "code": {
+                                "id": 4,
+                                "product_id": 4,
+                                "code": "4",
+                                "created_at": "2023-02-22T09:41:49.000000Z",
+                                "updated_at": "2023-02-22T09:41:49.000000Z",
+                                "deleted_at": null
+                            },
+                            "created_at": "2023-02-22T09:41:49.000000Z",
+                            "updated_at": "2023-02-22T09:41:49.000000Z",
+                            "deleted_at": null,
+                            "name": "test",
+                            "description": null,
+                            "price": 70,
+                            "unit": null,
+                            "mrp": 70,
+                            "min_mrp": 70,
+                            "ena": null,
+                            "alert_quantity": 1,
+                            "warranty": 0,
+                            "status": 1,
+                            "category_id": 0,
+                            "sub_category_id": 0,
+                            "imagefile": "bf8fb73bf31741acdeba53428ca9e540.jpg",
+                            "code_text": "4"
+                        }, {
+                            "id": 3,
+                            "product_id": 3,
+                            "code": {
+                                "id": 3,
+                                "product_id": 3,
+                                "code": "3",
+                                "created_at": "2023-02-09T02:35:53.000000Z",
+                                "updated_at": "2023-02-09T02:35:53.000000Z",
+                                "deleted_at": null
+                            },
+                            "created_at": "2023-02-09T02:35:53.000000Z",
+                            "updated_at": "2023-02-09T02:36:07.000000Z",
+                            "deleted_at": null,
+                            "name": "vv",
+                            "description": null,
+                            "price": 0.8000000000000000444089209850062616169452667236328125,
+                            "unit": 0,
+                            "mrp": 0.8000000000000000444089209850062616169452667236328125,
+                            "min_mrp": 0.8000000000000000444089209850062616169452667236328125,
+                            "ena": null,
+                            "alert_quantity": 3,
+                            "warranty": 0,
+                            "status": 1,
+                            "category_id": 0,
+                            "sub_category_id": 0,
+                            "imagefile": "",
+                            "code_text": "3"
+                        }];
+                        var customers = [{
+                            "id": 1,
+                            "name": "vxcbxcb",
+                            "address": "dvxcvcxv",
+                            "gender": 1,
+                            "nid": null,
+                            "email": null,
+                            "vat_no": null,
+                            "opening_balance": null,
+                            "due_amount": null,
+                            "mobile": "32432432",
+                            "user_id": 1,
+                            "receipt_type": 2,
+                            "status": 1,
+                            "created_at": "2023-02-05T19:53:22.000000Z",
+                            "updated_at": "2023-02-05T19:53:22.000000Z",
+                            "deleted_at": null
+                        }, {
+                            "id": 2,
+                            "name": "rwerwer",
+                            "address": "rtewrwer",
+                            "gender": 1,
+                            "nid": null,
+                            "email": null,
+                            "vat_no": null,
+                            "opening_balance": null,
+                            "due_amount": null,
+                            "mobile": "45435345",
+                            "user_id": 1,
+                            "receipt_type": 2,
+                            "status": 1,
+                            "created_at": "2023-02-06T20:53:21.000000Z",
+                            "updated_at": "2023-02-06T20:53:21.000000Z",
+                            "deleted_at": null
+                        }];
+                        var page_no = Math.round($('.dell_quantity').length / 30);
+                        var temProducts = [];
+                        var invoice1 = '';
+                        var action1 = '';
+                        invoice1 = '';
+                        action1 = '';
+                        payment = 0;
+                        $(document).ready(function() {
+
+                            $('#confirmForm').validate({ // initialize the plugin
+                                rules: {
+                                    bill_amount: {
+                                        required: true,
+                                    },
+                                    total_bill: {
+                                        required: true,
+                                    },
+                                    due_amount: {
+                                        required: true,
+                                    },
+                                    ledger: {
+                                        required: true,
+                                    }
+                                }
+                            });
 
                             $.ajax({
                                 type: 'get',
@@ -830,28 +1172,247 @@
                                 }
                             })
 
-                        });
+                            $('#confirm_account').on('click', function(e) {
+                                if (!$("#confirmForm").valid()) {
+                                    $(e).preventDefault();
 
-                        function submitForm()
-                        {
-                            $.ajax({
-                                type: 'post',
-                                url: '../../routes/add_sales_helper.php',
-                                success: function(data) {
-                                    let response = JSON.parse(data);
-                                    products = response;
-                                    console.log(response);
-                                    if (response.success) {
-                                        Notifications.success(response.msg);
-                                    } else {
-                                        Notifications.errorMsg(response.msg)
+                                } else {
+                                    if ($("#total_amount").val() > 0) {
+                                        $('#checkedit').val(2);
+
+                                        $("#discount_amount").val($("#discount").val());
+                                        $("#total").val($("#total_bill").val());
+                                        $("#cheque_no").val($("#cheque_n").val());
+                                        $("#cheque_date").val($("#cheque_d").val());
+                                        $("#clearance_date").val($("#clearance_d").val());
+                                        $("#receipt_details").val($("#details").val());
+                                        $('#paymentmodal').modal('hide');
+                                        grandTotalShow();
+                                        /////////
+                                        if (invoice1.receipt) {
+                                            $("#discount_amount").val(parseFloat(invoice1.receipt.discount) + parseFloat($('#discount').val()));
+                                            $("#total").val(parseFloat(invoice1.receipt.total) + parseFloat($('#total_bill').val()));
+                                        }
+                                        $("#invoice_payment").click();
                                     }
-                                },
-                                error: function(xhr, error, errorThrown) {
-                                    console.log(xhr.error);
                                 }
-                            })
-                        }
+                            });
+                            $('#drafttable').DataTable({
+                                "destroy": true,
+                                "processing": true,
+                                "bSort": false,
+                                "paging": true,
+                                "pageLength": 5,
+                                "aLengthMenu": [
+                                    [5, 10, 25, 50, 100],
+                                    [5, 10, 50, 100, "All"]
+                                ],
+                                "iDisplayLength": 5,
+                            });
+                            $('#duetable').DataTable({
+                                "destroy": true,
+                                "processing": true,
+                                "bSort": false,
+                                "paging": true,
+                                "pageLength": 5,
+                                "aLengthMenu": [
+                                    [5, 10, 25, 50, 100],
+                                    [5, 10, 50, 100, "All"]
+                                ],
+                                "iDisplayLength": 5,
+                            });
+                            $('#finaltable').DataTable({
+                                "destroy": true,
+                                "processing": true,
+                                "bSort": false,
+                                "paging": true,
+                                "pageLength": 5,
+                                "aLengthMenu": [
+                                    [5, 10, 25, 50, 100],
+                                    [5, 10, 50, 100, "All"]
+                                ],
+                                "iDisplayLength": 5,
+                            });
+                            $('#invoice_draft').on('click', function() {
+                                $.ajax({
+                                    method: "POST",
+                                    url: "https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin/sale-storedraft",
+                                    data: $('#form').serialize(),
+                                    success: function(response) {
+                                        console.log(response);
+                                        location.reload("https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin//sale/createbyname");
+                                    }
+                                });
+                            });
+                            $('.slim-scroll').slimScroll({
+                                // color: '#00f',
+                                size: '5px',
+                                height: '53rem',
+                                alwaysVisible: true
+                            });
+                            $('#myTable').dataTable({
+                                paging: true,
+                                searching: true
+                            });
+                            $('#invoice_payment').on('click', function() {
+                                if (!$("#customer_mobile").val()) {
+                                    var returnVal = alert("Select Customer");
+                                    $(this).prop("checked", returnVal);
+                                    $(this).prop('checked', false);
+                                    $("#customer_mobile").focus();
+                                    return false;
+                                } else {
+
+                                    if (!$("#percentage").val()) {
+                                        var percentageVal = alert("Select Vat");
+                                        $(this).prop("checked", percentageVal);
+                                        $(this).prop('checked', false);
+                                        $("#percentage").focus();
+                                        return false;
+                                    } else {
+                                        if (invoice1) {
+                                            var total_payable = parseFloat($('#total_amount').val());
+
+                                            //                            $('#bill_amount').val(total_payable);
+                                            //                            $('#total_bill').val(total_payable);
+                                            //                            $('.total_duebalance_span').html('৳ '+(($('#totalamount').html())?$('#totalamount').html():'0.00'));
+                                            //                            $('.total_payable_span').html('৳ '+((total_payable)?total_payable:'0.00'));
+                                            //                            $('.total_paying').html('৳ '+((total_payable)?total_payable:'0.00'));
+                                            //                            var item  = 0;
+                                            //                            for (let index = 0; index < $('#productTbody').children().length; index++) {
+                                            //                                // console.log($('#productTbody').children().eq(index).children().eq(3));
+                                            //                                item += parseInt($('#productTbody').children().eq(index).children().eq(5).find('input').val());
+                                            //                            }
+                                            //                            $('.total_quantity').html(item);
+                                            //
+                                            //                            $('#paymentmodal').modal('show');
+                                            //                            calculatePayment();
+
+
+
+                                            if (invoice1.receipt) {
+                                                $('#bill_amount').val(total_payable - payment);
+                                                $('#total_bill').val(total_payable - payment);
+                                                $('#discount').val(0);
+                                                $('#due_amount').val(0);
+
+                                                var item = 0;
+                                                for (let index = 0; index < $('#productTbody').children().length; index++) {
+                                                    // console.log($('#productTbody').children().eq(index).children().eq(3));
+                                                    item += parseInt($('#productTbody').children().eq(index).children().eq(5).find('input').val());
+                                                }
+                                                $('.total_quantity').html(item);
+                                                calculatePayment();
+                                                $('#paymentmodal').modal('show');
+                                            } else {
+                                                if ($('#customer_receipt_type_id') == 1) {
+                                                    var total_payable = parseFloat($("#totalamount").html()) + parseFloat($('#total_amount').val());
+                                                } else {
+                                                    var total_payable = parseFloat($('#total_amount').val());
+                                                }
+                                                $('#bill_amount').val(total_payable - payment);
+                                                $('#total_bill').val(total_payable - payment);
+                                                $('#discount').val(0);
+                                                $('#due_amount').val(0);
+
+
+                                                var item = 0;
+                                                for (let index = 0; index < $('#productTbody').children().length; index++) {
+                                                    // console.log($('#productTbody').children().eq(index).children().eq(3));
+                                                    item += parseInt($('#productTbody').children().eq(index).children().eq(5).find('input').val());
+                                                }
+                                                $('.total_quantity').html(item);
+                                                calculatePayment();
+                                                $('#paymentmodal').modal('show');
+                                            }
+                                        } else {
+                                            var total_payable = parseFloat($('#total_amount').val());
+
+                                            $('#bill_amount').val(total_payable);
+                                            $('#total_bill').val(total_payable);
+
+                                            $('.total_duebalance_span').html('৳ ' + (($('#totalamount').html()) ? $('#totalamount').html() : '0.00'));
+                                            $('.total_payable_span').html('৳ ' + ((total_payable) ? total_payable : '0.00'));
+                                            $('.total_paying').html('৳ ' + ((total_payable) ? total_payable : '0.00'));
+                                            var item = 0;
+                                            for (let index = 0; index < $('#productTbody').children().length; index++) {
+                                                // console.log($('#productTbody').children().eq(index).children().eq(3));
+                                                item += parseInt($('#productTbody').children().eq(index).children().eq(5).find('input').val());
+                                            }
+                                            $('.total_quantity').html(item);
+
+                                            $('#paymentmodal').modal('show');
+                                            calculatePayment();
+                                        }
+                                    }
+
+                                }
+
+                            });
+                            $("#bill_amount").keyup(function() {
+                                calculatePayment();
+                            });
+                            $("#discount").keyup(function() {
+                                calculatePayment();
+                            });
+                            $("#total_bill").keyup(function() {
+                                calculatePayment();
+                            });
+                            $("#formCustomer").submit(function(event) {
+                                event.preventDefault();
+                                $.ajax({
+                                    method: "post",
+                                    url: "https://apps.bitspecksolutions.com/shop/posshop/posshop-tm-V1.0/public/admin/customer/storecusajax",
+                                    data: {
+                                        _token: "uPdtEncQmMIRsjyI2cTJaPbOZIYvvMZRJ7RxpPqH",
+                                        name: $("#name").val(),
+                                        address: $("#address").val(),
+                                        gender: $("#gender").val(),
+                                        nid: $("#nid").val(),
+                                        email: $("#email").val(),
+                                        mobile: $("#mobile").val(),
+                                        receipt_type: $("#receipt_type").val(),
+                                    },
+                                    success: function(response, textStatus, jqXHR) {
+                                        $('#formCustomer').trigger("reset");
+                                        customers = response.customers;
+                                        selectSearchCustomer(response.customer.id, response.customer.name, response.customer.address);
+                                        // console.log(customers);
+                                        $('#modelId').modal('hide');
+                                    }
+                                });
+                            });
+
+                            $('#confirmreceipt').change(function() {
+                                if (!$("#customer_id").val()) {
+                                    var returnVal = alert("Select Customer");
+                                    $(this).prop("checked", returnVal);
+                                    $(this).prop('checked', false);
+                                    $("#customer_mobile").focus();
+                                    return false;
+                                }
+                                if (this.checked) {
+                                    CustomerReceiptCheck();
+                                    $(this).prop("checked", returnVal);
+                                } else {
+                                    $('.recieptdiv').addClass('d-none');
+
+                                }
+                                // $('#textbox1').val(this.checked);
+                            });
+                            $("tbody").on('click', 'input.productinput', function() {
+                                console.log('called');
+
+                                $(".productinput").each(function() {
+                                    if ($(this).is(":checked")) {
+                                        $("#multi_delete").css('display', 'inline-block');
+                                        return false;
+                                    } else {
+                                        $("#multi_delete").css('display', 'none');
+                                    }
+                                });
+                            });
+                        });
 
 
                         $('#btnCloseRegister').on('click', function() {
