@@ -75,7 +75,7 @@ class LoyaltyCustomerController extends Controller
                     $email
                 ]
             );
-            return ['success' => true, 'msg' => 'Customer successfully created!'];
+            return ['success' => true, 'msg' => 'Customer successfully created!', 'data' => $response];
         } catch (mysqli_sql_exception $th) {
             var_dump($th->getMessage());
         } catch (Exception $e) {

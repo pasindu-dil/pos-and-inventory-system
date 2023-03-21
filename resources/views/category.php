@@ -2,6 +2,7 @@
 session_start();
 
 $_SESSION['page_title'] = "Category";
+
 ?>
 
 <!DOCTYPE html>
@@ -56,11 +57,9 @@ $_SESSION['page_title'] = "Category";
                                         <table class="table align-items-center mb-0" id="categoryTable">
                                             <thead>
                                                 <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                                <th class="text-secondary opacity-7"></th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NAME</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -79,11 +78,11 @@ $_SESSION['page_title'] = "Category";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addCategory">
+                    <form id="addCategory" method="POST" action="../../routes/add_category_helper.php">
                         <?php require('./forms/categoryForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#editCategory', '#editCategoryModel', '#categoryTable')">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#addCategory', '#addCategoryModel', '#categoryTable')">Save</button>
                         </div>
                     </form>
                 </div>
@@ -96,7 +95,7 @@ $_SESSION['page_title'] = "Category";
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editCategory">
+                    <form id="editCategory" method="POST" action="../../routes/update_category_helper.php">
                         <?php require('./forms/categoryForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
@@ -143,7 +142,7 @@ $_SESSION['page_title'] = "Category";
     <script>
         $(document).ready(function () {
             activeTab('category');
-            DataTableOption.initDataTable('customerTable', '/');
+            DataTableOption.initDataTable('#categoryTable', '../../routes/category_datatable_helper.php');
             let rules = {
                 name: {
                     required: true
@@ -159,6 +158,18 @@ $_SESSION['page_title'] = "Category";
             damping: '0.5'
         }
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+
+        function edit(result) {
+            let id = result.dataset.id;
+            let name = result.dataset.name;
+            $('#editCategoryModel').find('#categoryName').val(name);
+            $('#editCategoryModel').find('#id').val(id);
+            $('#editCategoryModel').modal('show');
+        }
+
+        function deleteItem(id) {
+            FormOptions.deleteForm('../../routes/category_delete_helper.php?id=' + id, '#categoryTable', id);
         }
     </script>
 
