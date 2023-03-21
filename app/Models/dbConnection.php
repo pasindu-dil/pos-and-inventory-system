@@ -137,4 +137,23 @@ class dbConnection
         // if (!$result) throw new Exception("Error Processing Request", 1);
         return $result;
     }
+
+    /**
+     * 
+     */
+    public function getDataByQuery($query)
+    {
+        try {
+            $row = [];
+            $result = mysqli_query($this->conn, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row_1 = mysqli_fetch_assoc($result)) {
+                    array_push($row, $row_1);
+                }
+            }
+            return $row;
+        } catch (Throwable $th) {
+            //throw $th;
+        }
+    }
 }

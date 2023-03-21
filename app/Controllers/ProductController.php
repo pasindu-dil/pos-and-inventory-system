@@ -156,4 +156,45 @@ class ProductController extends Controller
         $response = $this->connection->fetchAccoc('sub_categories');
         return $response;
     }
+
+    public function dataToSales()
+    {
+        $data = [];
+        $i = 0;
+        $deleteBtn = "";
+        $response = $this->connection->fetchAccoc('products');
+        $canDelete = '';
+        $editBtn = '';
+        if (isset($_SESSION["role"]) && $_SESSION["role"] == "Super Admin")
+            $canDelete = true;
+        foreach ($response as $key => $value) {
+            // $category = $this->connection->selectColumnsWithWhereClause('categories', ['name'], "id=$value[category_id]");
+            //            $subCategory = $this->connection->selectColumnsWithWhereClause('sub_categories', ['sub_category_name'], "id=$value[category_id]");
+            $editBtn = "<span role='button'><i class='fas fa-edit' data-id='$value[id]' data-name='$value[name]' data-item_code='$value[item_code]' data-price='$value[price]' data-quantity='$value[quantity]' data-category_id='$value[category_id]' data-sub_category_id='$value[sub_category_id]' data-remarks='$value[remarks]' data-description='$value[description]' onClick='edit(this)'></i></sapn>";
+            if ($canDelete) {
+                $deleteBtn = "<span role='button'><i class='fas fa-trash mx-2' onClick='deleteItem($value[id])' ></i></span>";
+            }
+            $data[$i] = [
+                // $value['id'],
+                $value['name'],
+                $value['item_code'],
+                "Rs. " . $value['price'],
+                ($value['quantity'] != 0) ? $value['quantity'] : "<span class='badge bg-gradient-danger'>out of stock</span>",
+                // $category['name'],
+                //                $subCategory ? $subCategory['sub_category_id'] : '',
+                // $value['remarks'],
+                // $value['description'],
+                $editBtn . $deleteBtn
+            ];
+            $i++;
+        }
+        if (empty($data[0][0])) {
+            return [
+                'data' => []
+            ];
+        }
+        return [
+            'data' => $data
+        ];
+    }
 }
