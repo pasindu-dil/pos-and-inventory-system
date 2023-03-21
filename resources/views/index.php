@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use App\Controllers\LoginController;
 
 require 'resources\helpers\helpers.php';
@@ -157,17 +157,17 @@ require 'resources\helpers\helpers.php';
                   <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
                   <div class="row mt-3">
                     <div class="col-2 text-center ms-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
+                      <a class="btn btn-link px-3" href="javascript:">
                         <i class="fa fa-facebook text-white text-lg"></i>
                       </a>
                     </div>
                     <div class="col-2 text-center px-1">
-                      <a class="btn btn-link px-3" href="javascript:;">
+                      <a class="btn btn-link px-3" href="javascript:">
                         <i class="fa fa-github text-white text-lg"></i>
                       </a>
                     </div>
                     <div class="col-2 text-center me-auto">
-                      <a class="btn btn-link px-3" href="javascript:;">
+                      <a class="btn btn-link px-3" href="javascript:">
                         <i class="fa fa-google text-white text-lg"></i>
                       </a>
                     </div>
@@ -273,13 +273,13 @@ require 'resources\helpers\helpers.php';
           {
             clearForm: true,
             type: 'post',
-            url: 'resources/views/routehelpers/loginhelper.php',
+            url: '../../routes/loginhelper.php',
             data: {mode: 'login', email: email, password: password},
             success: function (data) { 
               let response = JSON.parse(data);
               if (response.success) {
                 Notifications.success(response.msg);
-                window.location.href = "http://localhost:8000/resources/views/dashboard.php";
+                window.location.href = "resources/views/dashboard.php";
               } else {
                 Notifications.errorMsg(response.msg)
               }

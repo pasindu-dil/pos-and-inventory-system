@@ -7,10 +7,11 @@ use App\Models\dbConnection as Connection;
 
 class Controller
 {
-    protected $connection;
+    protected Connection $connection;
 
     public function __construct()
     {
+        session_start();
         $this->connection = new Connection();
     }
 
@@ -20,5 +21,10 @@ class Controller
     public function sendResponse($message, $title): object
     {
         return toastr()->success($message, $title);
+    }
+
+    public function setSessionData()
+    {
+
     }
 }

@@ -11,10 +11,15 @@ class LoginController extends Controller
     public function login($request)
     {
         try {
-            $values = $this->connection->selectColumnsWithWhereClause('users', ['email', 'password', 'id'], "email='$request[email]'");
+            $values = $this->connection->selectColumnsWithWhereClause('users', ['email', 'password', 'id', 'role_id'], "email='$request[email]'");
+            if (empty($values)) {
+                throw new DataDoesNotExistException("User name or password is incorrect!", "401");
+            }
             if ($values && $values['email'] === $request['email'] && $values['password'] === $request['password']) {
                 $_SESSION['user_id'] = $values['id'];
-                return ['success' => true, 'msg' => 'User successfully logedin!'];
+                $role = $this->connection->selectColumnsWithWhereClause('roles', ['role_name'], "id=$values[role_id]");
+                $_SESSION['role'] = $role['role_name'];
+                return ['success' => true, 'msg' => 'User successfully logged!'];
             }
         } catch (DataDoesNotExistException $exception) {
             return ['success' => false, 'msg' => $exception->getMessage()];

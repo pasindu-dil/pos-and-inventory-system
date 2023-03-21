@@ -7,7 +7,7 @@ use App\Models\dbConnection as Connection;
 
 class HomeController extends Controller
 {
-    public $connection;
+    public Connection $connection;
 
     public function __construct()
     {

@@ -2,6 +2,7 @@
 session_start();
 
 $_SESSION['page_title'] = "Category";
+
 ?>
 
 <!DOCTYPE html>
@@ -44,23 +45,21 @@ $_SESSION['page_title'] = "Category";
                             <div class="card my-4">
                                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                     <div class="bg-gradient-primary shadow-primary border-radius-lg d-flex justify-content-between pt-3 px-4">
-                                        <h6 class="text-white text-capitalize pt-1">Customer table</h6>
+                                        <h6 class="text-white text-capitalize pt-1">Category table</h6>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCustomerModel">
-                                            Add Customer
+                                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addCategoryModel">
+                                            Add Category
                                         </button>
                                     </div>
                                 </div>
                                 <div class="card-body px-0 pb-2">
                                     <div class="table-responsive p-5 pt-0">
-                                        <table class="table align-items-center mb-0" id="customerTable">
+                                        <table class="table align-items-center mb-0" id="categoryTable">
                                             <thead>
                                                 <tr>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                                                <th class="text-secondary opacity-7"></th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">NAME</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">action</th>
                                                 </tr>
                                             </thead>
                                         </table>
@@ -72,35 +71,35 @@ $_SESSION['page_title'] = "Category";
                 </div>
             </div>
         </main>
-        <div class="modal fade" id="addCustomerModel" tabindex="-1" aria-labelledby="addCustomerModelLabel" aria-hidden="true">
+        <div class="modal fade" id="addCategoryModel" tabindex="-1" aria-labelledby="addCategoryModelLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" style="width: 600px;">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Loyalty Customer</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="addCustomer">
-                        <?php require('./forms/customerForm.php'); ?>
+                    <form id="addCategory" method="POST" action="../../routes/add_category_helper.php">
+                        <?php require('./forms/categoryForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.submitForm('#addCategory', '#addCategoryModel', '#categoryTable')">Save</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="editCustomerModel" tabindex="-1" aria-labelledby="editCustomerModelLabel" aria-hidden="true">
+        <div class="modal fade" id="editCategoryModel" tabindex="-1" aria-labelledby="editCategoryModelLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content" style="width: 600px;">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Loyalty Customer</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Category</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form id="editCustomer">
-                        <?php require('./forms/customerForm.php'); ?>
+                    <form id="editCategory" method="POST" action="../../routes/update_category_helper.php">
+                        <?php require('./forms/categoryForm.php'); ?>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="submitForm()">Save</button>
+                            <button type="button" class="btn btn-primary" onclick="FormOptions.updateForm('#editCategory', '#editCategoryModel', '#categoryTable')">Save</button>
                         </div>
                     </form>
                 </div>
@@ -129,36 +128,28 @@ $_SESSION['page_title'] = "Category";
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
     <script src="../js/App.js"></script>
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script src="../js/jquery.form.js"></script>
     <script type="text/javascript" src="../plugins/jquery.toast/jquery.toast.min.js"></script>
     <script type="text/javascript" src="../plugins/jquery-datatable/jquery.datatable.js"></script>
+    <!-- <script type="text/javascript" src="../js/jquery.validate.js"></script> -->
     <script type="text/javascript" src="../js/jquery.validate.js"></script>
-    <script type="text/javascript" src="../js/custom//FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/FormOptions.js"></script>
+    <script type="text/javascript" src="../js/custom/notification.js"></script>
+    <script type="text/javascript" src="../js/custom/dataTable.js"></script>
+    <script type="text/javascript" src="../js/sweetalert.js"></script>
 
     
     <script>
         $(document).ready(function () {
-            activeTab('customer');
-            DataTableOption.initDataTable('customerTable', '/');
+            activeTab('category');
+            DataTableOption.initDataTable('#categoryTable', '../../routes/category_datatable_helper.php');
             let rules = {
                 name: {
                     required: true
                 },
-                gender: {
-                    required: true
-                },
-                mobile: {
-                    required: true,
-                    number: true,
-                    maxlength: 11,
-                    minlength: 11
-                },
-                nic: {
-                    required: true,
-                }
             };
-            FormOptions.initValidation('#addCustomer', rules);
-            FormOptions.initValidation('#editCustomer', rules);
+            FormOptions.initValidation('#addCategory', rules);
+            FormOptions.initValidation('#editCategory', rules);
         });
 
         var win = navigator.platform.indexOf('Win') > -1;
@@ -169,9 +160,16 @@ $_SESSION['page_title'] = "Category";
         Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
 
-        function submitForm() {
-            $('#addCustomer').valid();
-            $('#editCustomer').valid();
+        function edit(result) {
+            let id = result.dataset.id;
+            let name = result.dataset.name;
+            $('#editCategoryModel').find('#categoryName').val(name);
+            $('#editCategoryModel').find('#id').val(id);
+            $('#editCategoryModel').modal('show');
+        }
+
+        function deleteItem(id) {
+            FormOptions.deleteForm('../../routes/category_delete_helper.php?id=' + id, '#categoryTable', id);
         }
     </script>
 
