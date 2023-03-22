@@ -80,9 +80,9 @@ class categoryController extends Controller
             $canDelete = true;
         foreach ($response as $key => $value) {
             $editBtn = "<span role='button'><i class='fas fa-edit' data-id='$value[id]', data-name='$value[name]' onClick='edit(this)'></i></span>";
-            if ($canDelete) {
+            // if ($canDelete) {
                 $deleteBtn = "<span role='button'><i class='fas fa-trash mx-2' onClick='deleteItem($value[id])' ></i></span>";
-            }
+            // }
             $data[$i] = [
                 $value['id'],
                 $value['name'],
