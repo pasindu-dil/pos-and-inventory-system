@@ -156,4 +156,15 @@ class dbConnection
             //throw $th;
         }
     }
+    
+    public function getCount($query)
+    {  
+        try {
+            $result = mysqli_query($this->conn, $query);
+
+            return mysqli_fetch_all($result);
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+    }
 }

@@ -2,9 +2,15 @@
 session_start();
 require '../helpers/helpers.php';
 
+use App\Controllers\DashboardController;
 use App\Controllers\MenuController;
 
 $menuController = new MenuController();
+$dashboardController = new DashboardController();
+
+$sales = $dashboardController->todaysSales();
+$customers = $dashboardController->todaysCustomers();
+$products = $dashboardController->totalProducts();
 
 $_SESSION['page_title'] = "Dashboard";
 
@@ -73,7 +79,7 @@ $_SESSION['page_title'] = "Dashboard";
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Today's Money</p>
-                        <h4 class="mb-0">$53k</h4>
+                        <h4 class="mb-0">RS<?= $sales ?></h4>
                     </div>
                     </div>
                     <hr class="dark horizontal my-0">
@@ -90,7 +96,7 @@ $_SESSION['page_title'] = "Dashboard";
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-                        <h4 class="mb-0">2,300</h4>
+                        <h4 class="mb-0"><?= $customers ?></h4>
                     </div>
                     </div>
                     <hr class="dark horizontal my-0">
@@ -107,7 +113,7 @@ $_SESSION['page_title'] = "Dashboard";
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">New Clients</p>
-                        <h4 class="mb-0">3,462</h4>
+                        <h4 class="mb-0"><?= $products ?></h4>
                     </div>
                     </div>
                     <hr class="dark horizontal my-0">
@@ -124,7 +130,7 @@ $_SESSION['page_title'] = "Dashboard";
                     </div>
                     <div class="text-end pt-1">
                         <p class="text-sm mb-0 text-capitalize">Sales</p>
-                        <h4 class="mb-0">$103,430</h4>
+                        <h4 class="mb-0">RS<?= $sales ?></h4>
                     </div>
                     </div>
                     <hr class="dark horizontal my-0">
