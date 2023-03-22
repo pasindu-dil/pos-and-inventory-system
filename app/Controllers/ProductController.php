@@ -165,15 +165,16 @@ class ProductController extends Controller
         $response = $this->connection->fetchAccoc('products');
         $canDelete = '';
         $editBtn = '';
-        if (isset($_SESSION["role"]) && $_SESSION["role"] == "Super Admin")
-            $canDelete = true;
+        // if (isset($_SESSION["role"]) && $_SESSION["role"] == "Super Admin")
+        //     $canDelete = true;
         foreach ($response as $key => $value) {
             // $category = $this->connection->selectColumnsWithWhereClause('categories', ['name'], "id=$value[category_id]");
             //            $subCategory = $this->connection->selectColumnsWithWhereClause('sub_categories', ['sub_category_name'], "id=$value[category_id]");
             $editBtn = "<span role='button'><i class='fas fa-edit' data-id='$value[id]' data-name='$value[name]' data-item_code='$value[item_code]' data-price='$value[price]' data-quantity='$value[quantity]' data-category_id='$value[category_id]' data-sub_category_id='$value[sub_category_id]' data-remarks='$value[remarks]' data-description='$value[description]' onClick='edit(this)'></i></sapn>";
-            if ($canDelete) {
-                $deleteBtn = "<span role='button'><i class='fas fa-trash mx-2' onClick='deleteItem($value[id])' ></i></span>";
-            }
+            // if ($canDelete) {
+                // $deleteBtn = "<span role='button'><i class='fas fa-trash mx-2' onClick='deleteItem($value[id])' ></i></span>";
+            // }
+            $deleteBtn = "<span role='button'><i class='fas fa-trash mx-2' onClick='deleteItem($value[id])' ></i></span>";
             $data[$i] = [
                 // $value['id'],
                 $value['name'],
